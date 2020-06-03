@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: karti
+  User: kartik
   Date: 02/06/2020
   Time: 19:58
   To change this template use File | Settings | File Templates.
@@ -11,6 +11,12 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <%
+    if(session.getAttribute("uname")==null)
+    {
+      response.sendRedirect("AuthFail.html");
+    }
+  %>
+  <h1>Welcome</h1>
   </body>
 </html>

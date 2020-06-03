@@ -33,6 +33,7 @@ public class Login extends HttpServlet {
             pw.println("Correct");
             HttpSession sess= request.getSession();
             sess.setAttribute("uname",name);
+            response.sendRedirect("index.jsp");
             //redirect to dashboard page
         }
         else
