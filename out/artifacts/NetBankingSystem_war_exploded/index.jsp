@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: karti
+  User: kartik
   Date: 02/06/2020
   Time: 19:58
   To change this template use File | Settings | File Templates.
@@ -17,6 +17,6 @@
       response.sendRedirect("AuthFail.html");
     }
   %>
-  <h1>Welcome</h1>
+  <h1>Welcome${uname}</h1>
   </body>
 </html>
