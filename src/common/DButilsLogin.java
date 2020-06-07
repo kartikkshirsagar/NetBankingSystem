@@ -1,6 +1,6 @@
 package common;
 import java.sql.*;
-public class DButils {
+public class DButilsLogin {
     void Print() throws SQLException, ClassNotFoundException {
         Connection con=common.connectDB.connectToDB();
         Statement stmt=con.createStatement();

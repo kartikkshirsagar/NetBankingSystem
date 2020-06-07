@@ -6,7 +6,7 @@ public class Account {
     //Maybe an account type-SAVINGS/Current for extra features
     int Balance;
 
-    Account(String Name,int Account_Number,int Balance)
+    public Account(String Name,int Account_Number,int Balance)
     {
         this.Account_Holder=Name;
         this.Account_Number=Account_Number;
