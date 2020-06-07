@@ -21,4 +21,30 @@
         <url-pattern>/paycontroller</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PayOptions</servlet-name>
+        <servlet-class>PayPackage.PayOptions</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PayOptions</servlet-name>
+        <url-pattern>/payoptions</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>depositUser</servlet-name>
+        <servlet-class>PayPackage.depositUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>depositUser</servlet-name>
+        <url-pattern>/depositUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>withdrawUser</servlet-name>
+        <servlet-class>PayPackage.withdrawUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>withdrawUser</servlet-name>
+        <url-pattern>/withdrawUser</url-pattern>
+    </servlet-mapping>
 </web-app>

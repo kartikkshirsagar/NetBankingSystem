@@ -14,13 +14,17 @@ public class PayController extends HttpServlet {
     //Login sends its data here..this will connect to the database and get this users details and forward it to a jsp page
     //which will have the discussed options....
     //This will then redirect to respective pages
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession sess=request.getSession();
+
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.service(req, resp);
+        HttpSession sess=req.getSession();
         Boolean Login=false;
         Account User;
         if(sess!=null)
         {
-            System.out.println("Welcome,checking");
+            //out.println("Welcome,checking");
             ArrayList<Account> List=TestArrayInit.InitArray();
             for(Account A:List)
             {
@@ -36,13 +40,17 @@ public class PayController extends HttpServlet {
             {
                 //redirect to a JSP displaying User details
 
-                response.sendRedirect("home.jsp");
+                resp.sendRedirect("home.jsp");
             }
         }
         else
         {
-            System.out.println("Error in session");
+            //System.out.println("Error in session");
         }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

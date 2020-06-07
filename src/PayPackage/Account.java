@@ -9,7 +9,7 @@ public class Account {
     Account(String Name,int Account_Number,int Balance)
     {
         this.Account_Holder=Name;
-        this.Account_Holder=Account_Holder;
+        this.Account_Number=Account_Number;
         this.Balance=Balance;
     }
 
