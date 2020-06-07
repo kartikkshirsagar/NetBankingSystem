@@ -35,4 +35,13 @@ public class DButilsBank {
         stmt.executeUpdate("UPDATE accounts SET balance = "+obj.getBalance()+" WHERE acc_no="+obj.getAccount_Number()+"; ");
         con.close();
     }
+    public static Account acc_noToAcc(int acc_no) throws SQLException, ClassNotFoundException {
+        Connection con=connectToDB();
+        Statement stmt=con.createStatement();
+        ResultSet rs=stmt.executeQuery("SELECT * FROM accounts WHERE acc_no='"+acc_no+"';");
+        rs.next();
+        Account ret=new Account(rs.getString("acc_holder"),acc_no,rs.getInt("balance"));
+        return ret;
+
+    }
 }

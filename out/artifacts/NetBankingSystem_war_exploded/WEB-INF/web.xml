@@ -56,4 +56,13 @@
         <servlet-name>transferUser</servlet-name>
         <url-pattern>/transferUser</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>loginPackage.Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
 </web-app>
