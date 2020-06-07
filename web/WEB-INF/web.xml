@@ -47,4 +47,13 @@
         <servlet-name>withdrawUser</servlet-name>
         <url-pattern>/withdrawUser</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>transferUser</servlet-name>
+        <servlet-class>PayPackage.transferUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>transferUser</servlet-name>
+        <url-pattern>/transferUser</url-pattern>
+    </servlet-mapping>
 </web-app>

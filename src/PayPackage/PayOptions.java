@@ -30,7 +30,7 @@ public class PayOptions extends HttpServlet {
         }
         else
         {
-
+            response.sendRedirect("transfer.jsp");
         }
     }
 

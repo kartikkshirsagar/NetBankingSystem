@@ -25,6 +25,10 @@ public class TestArrayInit {
                 List.get(i).setBalance(User.getBalance());
             }
         }
+    }
 
+    static ArrayList<Account> getList()
+    {
+        return List;
     }
 }
