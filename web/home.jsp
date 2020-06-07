@@ -28,6 +28,7 @@
     <p>Your Account Number is:<% out.println(UserDetails.getAccount_Number()); %>
         <br>Your Balance:<% out.println(UserDetails.getBalance()); %>
     </p>
+    <jsp:include page="logoutbutton.html" />
     <!-- Above part can be made as a dashboard-->
     <form method="post" action="payoptions">
         <input type="submit" name="submit" value="Deposit">
