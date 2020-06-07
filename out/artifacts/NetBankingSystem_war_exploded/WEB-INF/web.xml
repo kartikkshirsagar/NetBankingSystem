@@ -12,5 +12,13 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PayController</servlet-name>
+        <servlet-class>PayPackage.PayController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PayController</servlet-name>
+        <url-pattern>/paycontroller</url-pattern>
+    </servlet-mapping>
 
 </web-app>

@@ -12,34 +12,30 @@ import java.io.PrintWriter;
 @WebServlet(name = "login")
 public class Login extends HttpServlet {
 
-    boolean isCorrect(String user,String pass)
-    {
-        if(user.equals("root") && pass.equals("root"))
-        {
+    boolean isCorrect(String user, String pass) {
+        if (user.equals("root") && pass.equals("root")) {
 
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name=request.getParameter("uname");
-        String pass=request.getParameter("pass");
-        PrintWriter pw=response.getWriter();
-        if(isCorrect(name,pass))
-        {
+        String name = request.getParameter("uname");
+        String pass = request.getParameter("pass");
+        PrintWriter pw = response.getWriter();
+        if (isCorrect(name, pass)) {
             pw.println("Correct");
-            HttpSession sess= request.getSession();
-            sess.setAttribute("uname",name);
-            response.sendRedirect("index.jsp");
+            HttpSession sess = request.getSession();
+            sess.setAttribute("uname", name);
+            //response.sendRedirect("index.jsp");
+            response.sendRedirect("paycontroller");
             //redirect to dashboard page
-        }
-        else
-        {
+        } else {
             //redirect to auth fail
             response.sendRedirect("AuthFail.html");
         }
     }
 }
+

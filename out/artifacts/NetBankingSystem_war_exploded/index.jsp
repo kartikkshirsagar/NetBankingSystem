@@ -17,6 +17,6 @@
       response.sendRedirect("AuthFail.html");
     }
   %>
-  <h1>Welcome${uname}</h1>
+  <h1>Welcome ${uname}</h1>
   </body>
 </html>
