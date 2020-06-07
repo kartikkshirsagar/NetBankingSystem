@@ -32,7 +32,7 @@ public class PayController extends HttpServlet {
                 {
                     Login=true;
                     User=A;
-                    sess.setAttribute("User",User);
+                    //sess.setAttribute("User",User);
                 }
             }
             //User contains the data of this person...this will be forwarded to JSP

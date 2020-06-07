@@ -31,4 +31,16 @@ public class TestArrayInit {
     {
         return List;
     }
+
+    public static Account getDetails(String Username)
+    {
+        for(Account A:List)
+        {
+            if(A.getAccount_Holder().equals(Username))
+            {
+                return A;
+            }
+        }
+        return null;
+    }
 }

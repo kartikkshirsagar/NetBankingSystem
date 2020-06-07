@@ -14,7 +14,10 @@ import java.util.ArrayList;
 public class transferUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession sess=request.getSession();
-        Account User=(Account) sess.getAttribute("User");
+        //Account User=(Account) sess.getAttribute("User");
+        Account User=null;
+        String Username=sess.getAttribute("uname").toString();
+        User=TestArrayInit.getDetails(Username);
         int amount=Integer.parseInt(request.getParameter("amount"));
         int Account=Integer.parseInt(request.getParameter("Account"));
         if(User.getBalance() >= amount)

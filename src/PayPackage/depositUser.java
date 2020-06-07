@@ -13,13 +13,15 @@ public class depositUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession sess=request.getSession();
         int amount=Integer.parseInt(request.getParameter("amount"));
-        Account User=(Account)sess.getAttribute("User");
-
+        //Account User=(Account)sess.getAttribute("User");
+        Account User=null;
+        String Username=sess.getAttribute("uname").toString();
+        User=TestArrayInit.getDetails(Username);
         //Now database updation code
         User.setBalance(User.getBalance()+amount);
         TestArrayInit.UpdateList(User);
-        sess.removeAttribute("User");
-        sess.setAttribute("User",User);
+        //sess.removeAttribute("User");
+        //sess.setAttribute("User",User);
         //Show success message(maybe popup)
         response.sendRedirect("home.jsp");
     }

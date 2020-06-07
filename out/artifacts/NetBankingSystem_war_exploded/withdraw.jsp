@@ -1,4 +1,5 @@
-<%@ page import="PayPackage.Account" %><%--
+<%@ page import="PayPackage.Account" %>
+<%@ page import="PayPackage.TestArrayInit" %><%--
   Created by IntelliJ IDEA.
   User: RAJIV
   Date: 07-06-2020
@@ -11,10 +12,17 @@
     <title>Withdraw</title>
 </head>
 <body>
-    <% HttpSession sess=request.getSession(); %>
+<%
+    HttpSession sess = request.getSession();
+    String Username = sess.getAttribute("uname").toString();
+    Account UserDetails = null;
+    if (!Username.equals("")) {
+        UserDetails = TestArrayInit.getDetails(Username);
+    }
+%>
+
     <h2>How much do you want to withdraw?</h2>
-    <h3>Current Balance:<% Account User=(Account) sess.getAttribute("User");
-                          out.println(User.getBalance()) ; %></h3>
+    <h3>Current Balance:<% UserDetails.getBalance(); %></h3>
     <form method="post" action="withdrawUser">
         <input type="number" name="amount">
     </form>

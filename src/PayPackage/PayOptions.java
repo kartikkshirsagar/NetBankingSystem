@@ -19,19 +19,23 @@ public class PayOptions extends HttpServlet {
         HttpSession sess=request.getSession();
         String task=request.getParameter("submit");
         //System.out.println(task);
-        Account User= (Account) sess.getAttribute("User");
-        if(task.equals("Deposit"))
+        //Account User= (Account) sess.getAttribute("User");
+        if(sess!=null)
         {
-            response.sendRedirect("deposit.jsp");
+            if(task.equals("Deposit"))
+            {
+                response.sendRedirect("deposit.jsp");
+            }
+            else if(task.equals("Withdraw"))
+            {
+                response.sendRedirect("withdraw.jsp");
+            }
+            else
+            {
+                response.sendRedirect("transfer.jsp");
+            }
         }
-        else if(task.equals("Withdraw"))
-        {
-            response.sendRedirect("withdraw.jsp");
-        }
-        else
-        {
-            response.sendRedirect("transfer.jsp");
-        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
