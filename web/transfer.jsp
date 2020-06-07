@@ -14,6 +14,10 @@
 <body>
     <%
         HttpSession sess=request.getSession();
+        if(sess.getAttribute("uname")==null)
+        {
+            response.sendRedirect("index.html");
+        }
         Account User=(Account) sess.getAttribute("User");
     %>
     <h1>Your Account No.:<% User.getAccount_Number(); %></h1>

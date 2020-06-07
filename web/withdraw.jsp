@@ -14,6 +14,10 @@
 <body>
 <%
     HttpSession sess = request.getSession();
+    if(sess.getAttribute("uname")==null)
+    {
+        response.sendRedirect("index.html");
+    }
     String Username = sess.getAttribute("uname").toString();
     Account UserDetails = null;
     if (!Username.equals("")) {
