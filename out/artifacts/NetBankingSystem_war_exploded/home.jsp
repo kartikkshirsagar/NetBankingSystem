@@ -1,5 +1,4 @@
-        <%@ page import="PayPackage.Account" %>
-<%@ page import="PayPackage.TestArrayInit" %><%--
+<%@ page import="PayPackage.Account" %><%--
   Created by IntelliJ IDEA.
   User: RAJIV
   Date: 07-06-2020
@@ -13,16 +12,7 @@
 </head>
 <body>
     <%
-        HttpSession sess = request.getSession();
-        if(sess.getAttribute("uname")==null)
-        {
-            response.sendRedirect("index.html");
-        }
-        String Username = sess.getAttribute("uname").toString();
-        Account UserDetails = null;
-        if (!Username.equals("")) {
-            UserDetails = TestArrayInit.getDetails(Username);
-        }
+        Account UserDetails= (Account) session.getAttribute("User");
     %>
     <h1>Welcome,<% out.println(UserDetails.getAccount_Holder()); %></h1>
     <p>Your Account Number is:<% out.println(UserDetails.getAccount_Number()); %>

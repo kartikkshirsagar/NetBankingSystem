@@ -11,7 +11,13 @@
     <title>Title</title>
 </head>
 <body>
-
+    <%
+        HttpSession sess=request.getSession();
+        if(sess.getAttribute("uname")==null)
+        {
+            response.sendRedirect("index.html");
+        }
+    %>
     <h2>How much would you like to deposit</h2>
     <form method="post" action="depositUser">
         <input type="number" name="amount">
