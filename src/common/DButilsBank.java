@@ -10,7 +10,7 @@ import java.sql.Statement;
 import static common.connectDB.connectToDB;
 
 public class DButilsBank {
-    Account getAccObj(String username) throws SQLException, ClassNotFoundException {
+    public static Account getAccObj(String username) throws SQLException, ClassNotFoundException {
 
         Connection con=connectToDB();
         Statement stmt=con.createStatement();
@@ -22,7 +22,7 @@ public class DButilsBank {
         con.close();
         return ret;
     }
-    void UpdateBal(Account obj) throws SQLException, ClassNotFoundException {
+    public static void UpdateBal(Account obj) throws SQLException, ClassNotFoundException {
         Connection con=connectToDB();
         Statement stmt=con.createStatement();
         ResultSet rs=stmt.executeQuery("UPDATE accounts SET balance = "+obj.getBalance()+" WHERE acc_no="+obj.getAccount_Number()+"; ");

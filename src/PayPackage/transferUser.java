@@ -1,5 +1,7 @@
 package PayPackage;
 
+import common.DButilsBank;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.AbstractCollection;
 import java.util.ArrayList;
 
@@ -17,7 +20,14 @@ public class transferUser extends HttpServlet {
         //Account User=(Account) sess.getAttribute("User");
         Account User=null;
         String Username=sess.getAttribute("uname").toString();
-        User=TestArrayInit.getDetails(Username);
+        //User=TestArrayInit.getDetails(Username);
+        try {
+            User= DButilsBank.getAccObj(Username);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         int amount=Integer.parseInt(request.getParameter("amount"));
         int Account=Integer.parseInt(request.getParameter("Account"));
         if(User.getBalance() >= amount)
