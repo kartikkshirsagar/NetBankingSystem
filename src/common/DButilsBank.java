@@ -32,7 +32,7 @@ public class DButilsBank {
     public static void UpdateBal(Account obj) throws SQLException, ClassNotFoundException {
         Connection con=connectToDB();
         Statement stmt=con.createStatement();
-        ResultSet rs=stmt.executeQuery("UPDATE accounts SET balance = "+obj.getBalance()+" WHERE acc_no="+obj.getAccount_Number()+"; ");
+        stmt.executeUpdate("UPDATE accounts SET balance = "+obj.getBalance()+" WHERE acc_no="+obj.getAccount_Number()+"; ");
         con.close();
     }
 }
