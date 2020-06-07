@@ -1,5 +1,7 @@
         <%@ page import="PayPackage.Account" %>
-<%@ page import="PayPackage.TestArrayInit" %><%--
+<%@ page import="PayPackage.TestArrayInit" %>
+        <%@ page import="common.DButilsBank" %>
+        <%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: RAJIV
   Date: 07-06-2020
@@ -21,13 +23,21 @@
         String Username = sess.getAttribute("uname").toString();
         Account UserDetails = null;
         if (!Username.equals("")) {
-            UserDetails = TestArrayInit.getDetails(Username);
+            //UserDetails = TestArrayInit.getDetails(Username);
+            try {
+                UserDetails= DButilsBank.getAccObj(Username);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     %>
     <h1>Welcome,<% out.println(UserDetails.getAccount_Holder()); %></h1>
     <p>Your Account Number is:<% out.println(UserDetails.getAccount_Number()); %>
         <br>Your Balance:<% out.println(UserDetails.getBalance()); %>
     </p>
+    <jsp:include page="logoutbutton.html" />
     <!-- Above part can be made as a dashboard-->
     <form method="post" action="payoptions">
         <input type="submit" name="submit" value="Deposit">

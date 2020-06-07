@@ -1,5 +1,8 @@
 <%@ page import="java.nio.channels.AcceptPendingException" %>
-<%@ page import="PayPackage.Account" %><%--
+<%@ page import="PayPackage.Account" %>
+<%@ page import="PayPackage.TestArrayInit" %>
+<%@ page import="common.DButilsBank" %>
+<%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: RAJIV
   Date: 07-06-2020
@@ -18,7 +21,18 @@
         {
             response.sendRedirect("index.html");
         }
-        Account User=(Account) sess.getAttribute("User");
+        Account User=null;
+        String Username = sess.getAttribute("uname").toString();
+        if (!Username.equals("")) {
+            //User = TestArrayInit.getDetails(Username);
+            try {
+                User= DButilsBank.getAccObj(Username);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     %>
     <h1>Your Account No.:<% User.getAccount_Number(); %></h1>
     <p>Enter the details of the person to who you want to transfer funds:</p>

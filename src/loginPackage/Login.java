@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
             HttpSession sess = request.getSession();
             sess.setAttribute("uname", name);
             //response.sendRedirect("index.jsp");
-            response.sendRedirect("paycontroller");
+            response.sendRedirect("home.jsp");
             //redirect to dashboard page
         } else {
             //redirect to auth fail
