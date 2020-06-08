@@ -30,6 +30,5 @@ public class DButilsLogin {
         Statement stmt = con.createStatement();
         stmt.executeUpdate("INSERT INTO accounts(acc_holder,balance) VALUES('"+name+"',0); ");
         con.close();
-
     }
 }
