@@ -6,6 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="NetBankingSystem" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql:mysql-connector-java:8.0.20" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="NetBankingSystem/web/Web" />
     </root>
