@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="nbs" uuid="75a794e6-e695-4776-8083-9ccbe73342ba">
+    <data-source source="LOCAL" name="nbs@localhost" uuid="2dc58e4a-1d51-4a13-bda0-8c766b790174">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/nbs</jdbc-url>
     </data-source>
   </component>
 </project>
