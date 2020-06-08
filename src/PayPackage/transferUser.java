@@ -29,22 +29,24 @@ public class transferUser extends HttpServlet {
             e.printStackTrace();
         }
         int amount=Integer.parseInt(request.getParameter("amount"));
-        int Account=Integer.parseInt(request.getParameter("Account"));
+        int AccountN=Integer.parseInt(request.getParameter("Account"));
         if(User.getBalance() >= amount)
         {
             Boolean found=false;
-            ArrayList<Account> List=TestArrayInit.getList();
-            for(Account A:List)
-            {
-                if(A.getAccount_Number()==Account)
-                {
-                    found=true;
-                    User.setBalance(User.getBalance()-amount);
-                    A.setBalance(A.getBalance()+amount);
-                    TestArrayInit.UpdateList(User);
-                    TestArrayInit.UpdateList(A);
-                }
+            Account transfer=null;
+            try {
+                transfer=DButilsBank.acc_noToAcc(AccountN);
+                found=true;
+                User.setBalance(User.getBalance()-amount);
+                DButilsBank.UpdateBal(User);
+                transfer.setBalance(transfer.getBalance()+amount);
+                DButilsBank.UpdateBal(transfer);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
+
             if(found==true)
             {
                 //Successful transaction
