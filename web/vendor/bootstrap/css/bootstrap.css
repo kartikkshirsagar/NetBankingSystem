@@ -78,9 +78,9 @@ html {
   box-sizing: inherit;
 }
 
-@-ms-viewport {
-  width: device-width;
-}
+/*@-ms-viewport {*/
+/*  width: device-width;*/
+/*}*/
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
@@ -3770,8 +3770,8 @@ tbody.collapse.show {
   .card-deck .card {
     display: -ms-flexbox;
     display: flex;
-    -ms-flex: 1 0 0%;
-        flex: 1 0 0%;
+    -ms-flex: 1 0 0;
+        flex: 1 0 0;
     -ms-flex-direction: column;
         flex-direction: column;
     margin-right: 15px;
@@ -3787,8 +3787,8 @@ tbody.collapse.show {
         flex-flow: row wrap;
   }
   .card-group .card {
-    -ms-flex: 1 0 0%;
-        flex: 1 0 0%;
+    -ms-flex: 1 0 0;
+        flex: 1 0 0;
   }
   .card-group .card + .card {
     margin-left: 0;

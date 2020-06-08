@@ -1,6 +1,5 @@
 package loginPackage;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +13,13 @@ public class Login extends HttpServlet {
 
     boolean isCorrect(String user, String pass) {
         if (user.equals("root") && pass.equals("root")) {
-
             return true;
         } else {
             return false;
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("uname");
         String pass = request.getParameter("pass");
         PrintWriter pw = response.getWriter();
