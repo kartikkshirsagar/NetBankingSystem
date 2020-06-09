@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 @WebServlet(name = "register")
@@ -16,14 +17,18 @@ public class Register extends HttpServlet {
         String name=request.getParameter("name").toString();
         String username=request.getParameter("username");
         String pass=request.getParameter("pass");
+        PrintWriter out = response.getWriter();
 //        System.out.println("x");
         try {
             DButilsLogin.InsertLogin(username,pass);
             DButilsLogin.InsertAcc(name);
+            out.println("success");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            out.println("failure");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            out.println("failure");
         }
     }
 
