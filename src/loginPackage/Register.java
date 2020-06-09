@@ -22,7 +22,6 @@ public class Register extends HttpServlet {
             DButilsLogin.InsertAcc(name);
         } catch (SQLException e) {
             e.printStackTrace();
-            response.setStatus(0);
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
