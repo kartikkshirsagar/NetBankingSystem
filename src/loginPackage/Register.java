@@ -20,8 +20,10 @@ public class Register extends HttpServlet {
         try {
             DButilsLogin.InsertLogin(username,pass);
             DButilsLogin.InsertAcc(name);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.setStatus(0);
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

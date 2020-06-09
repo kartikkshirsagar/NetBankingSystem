@@ -14,6 +14,7 @@
     <% HttpSession sess=request.getSession();
         sess.removeAttribute("uname");
         sess.invalidate();
+        sess=null;
         response.sendRedirect("index.html");
         %>
     <p>Thank you for using our services!</p>
