@@ -31,4 +31,16 @@ public class DButilsLogin {
         stmt.executeUpdate("INSERT INTO accounts(acc_holder,balance) VALUES('"+name+"',0); ");
         con.close();
     }
+
+    public static boolean ifUserExists(String uname) throws SQLException,ClassNotFoundException{
+        boolean ret=false;
+        Connection con=connectDB.connectToDB();
+        Statement stmt=con.createStatement();
+        ResultSet rs=stmt.executeQuery("SELECT * FROM login WHERE username='"+uname+"';");
+        if(rs.next())
+        {
+            ret=true;
+        }
+        return ret;
+    }
 }
