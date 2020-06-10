@@ -65,4 +65,13 @@
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckUser</servlet-name>
+        <servlet-class>loginPackage.CheckUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckUser</servlet-name>
+        <url-pattern>/checkUser</url-pattern>
+    </servlet-mapping>
 </web-app>
