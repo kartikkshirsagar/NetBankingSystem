@@ -17,9 +17,11 @@
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     HttpSession sess = request.getSession();
+    boolean auth=true;
     Account UserDetails = null;
     if (sess.getAttribute("uname") == null) {
         response.sendRedirect("index.html");
+        auth=false;
     } else {
         String Username = sess.getAttribute("uname").toString();
         UserDetails = null;
@@ -27,18 +29,19 @@
             //UserDetails = TestArrayInit.getDetails(Username);
             try {
                 UserDetails = DButilsBank.getAccObj(Username);
-            } catch (SQLException throwables) {
+            } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         }
     }
 
 %>
-    <h1>Welcome,<% out.println(UserDetails.getAccount_Holder()); %></h1>
-    <p>Your Account Number is:<% out.println(UserDetails.getAccount_Number()); %>
-        <br>Your Balance:<% out.println(UserDetails.getBalance()); %>
+    <h1>Welcome,<%
+        if(auth) {
+            out.println(UserDetails.getAccount_Holder());
+        }%></h1>
+    <p>Your Account Number is:<% if(auth) {out.println(UserDetails.getAccount_Number());} %>
+        <br>Your Balance:<%if(auth){ out.println(UserDetails.getBalance());} %>
     </p>
     <jsp:include page="logoutbutton.html" />
     <!-- Above part can be made as a dashboard-->
