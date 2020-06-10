@@ -117,7 +117,7 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="home.jsp" class="nav-link px-2">
                         <i class="material-icons icon">
                             dashboard
                         </i>
@@ -159,7 +159,28 @@
     </div>
     <div class="content">
         <main>
-            <p>nitin ka recent video wala part</p>
+            <p>Your Account Number is:  <% if(auth) {out.println(UserDetails.getAccount_Number());} %>
+                <br>Your Balance:   <%if(auth){ out.println(UserDetails.getBalance());} %>
+            </p>
+
+          <!--  <jsp:include page="logoutbutton.html" />    -->
+
+
+            <!-- Above part can be made as a dashboard-->
+            <!--
+            <form method="post" action="payoptions">
+                <input type="submit" name="submit" value="Deposit">
+                <input type="submit" name="submit" value="Withdraw">
+                <input type="submit" name="submit" value="TransferFunds">
+            </form>
+          -->
+            <!--<form method="post" action="">
+
+            </form>
+            <form method="post" action="">
+
+            </form>
+            -->
         </main>
     </div>
 </div>
