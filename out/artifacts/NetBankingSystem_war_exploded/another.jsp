@@ -109,19 +109,19 @@
 <script>
     $(document).ready(function() {
         $('#login').on('click', function(event) {
-            $('#1').fadeIn(1000);
-            $('#2').fadeOut(1000);
-            $('#3').fadeOut(1000);
+            $('#1').fadeIn(700);
+            $('#2').fadeOut(700);
+            $('#3').fadeOut(700);
         });
         $('#trans').on('click', function(event) {
-            $('#1').fadeOut(1000);
-            $('#2').fadeIn(1000);
-            $('#3').fadeOut(1000);
+            $('#1').fadeOut(700);
+            $('#2').fadeIn(700);
+            $('#3').fadeOut(700);
         });
         $('#register').on('click', function(event) {
-            $('#1').fadeOut(1000);
-            $('#2').fadeOut(1000);
-            $('#3').fadeIn(1000);
+            $('#1').fadeOut(700);
+            $('#2').fadeOut(700);
+            $('#3').fadeIn(700);
         });
     });
 </script>
