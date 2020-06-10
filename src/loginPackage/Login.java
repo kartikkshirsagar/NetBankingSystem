@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
             if (!isCorrect(name, pass)) {
                 //redirect to auth fail
                 System.out.println("in if cond");
-                response.sendRedirect("AuthFail.html");
+                response.sendRedirect("AuthFail.html#mymodal");
             } else {
                 pw.println("Correct");
                 HttpSession sess = request.getSession();
