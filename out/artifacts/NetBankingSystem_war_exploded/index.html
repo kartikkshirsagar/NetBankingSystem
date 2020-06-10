@@ -59,9 +59,7 @@
                 <div class="submit">
                     <button class="dark" type="submit">Register</button>
                 </div>
-                <div id="myDIV" style="display: none;color: red;padding-top: 0">
-                    <h3>Registration Successful</h3>
-                </div>
+                <h3 id="msg"></h3>
             </form>
         </div>
     </div>
@@ -86,22 +84,24 @@
         $("#register").on('submit',function (event) {
             event.preventDefault();
             let f = $(this).serialize();
-            console.log(f);
+            // console.log(f);
             $.ajax({
                 url : "register",
                 data : f,
                 type : 'POST',
                 success : function (data){
-                    let x = document.getElementById("myDIV");
-                    if (x.style.display === "none") {
-                        x.style.display = "block";
-                    } else {
-                        x.style.display = "none";
+                    // console.log(data);
+                    if(data.trim() === "success")
+                    {
+                        $('#msg').html("Successfully Registered");
+                    }
+                    else
+                    {
+                        $('#msg').html("Something Went Wrong");
                     }
                 },
                 error : function (data) {
-                    console.log(data);
-                    console.log("Failed");
+                    $('#msg').html("Something Went Wrong");
                 }
             })
         });
