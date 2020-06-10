@@ -15,23 +15,28 @@
 </head>
 <body>
 <%
+    response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+
     HttpSession sess = request.getSession();
     if(sess.getAttribute("uname")==null)
     {
         response.sendRedirect("index.html");
     }
-    String Username = sess.getAttribute("uname").toString();
-    Account UserDetails = null;
-    if (!Username.equals("")) {
-        //UserDetails = TestArrayInit.getDetails(Username);
-        try {
-            UserDetails= DButilsBank.getAccObj(Username);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+    else{
+        String Username = sess.getAttribute("uname").toString();
+        Account UserDetails = null;
+        if (!Username.equals("")) {
+            //UserDetails = TestArrayInit.getDetails(Username);
+            try {
+                UserDetails= DButilsBank.getAccObj(Username);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
+
 %>
 
     <h2>How much do you want to withdraw?</h2>

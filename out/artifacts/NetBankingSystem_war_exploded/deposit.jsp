@@ -12,6 +12,8 @@
 </head>
 <body>
     <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+
         HttpSession sess=request.getSession();
         if(sess.getAttribute("uname")==null)
         {
