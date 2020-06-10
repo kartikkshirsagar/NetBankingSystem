@@ -15,7 +15,7 @@
         sess.removeAttribute("uname");
         sess.invalidate();
         sess=null;
-        response.sendRedirect("index.html");
+        response.sendRedirect("index.jsp");
         %>
     <p>Thank you for using our services!</p>
 

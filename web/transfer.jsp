@@ -21,7 +21,7 @@
         HttpSession sess=request.getSession();
         if(sess.getAttribute("uname")==null)
         {
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
         }
         Account User=null;
         String Username = sess.getAttribute("uname").toString();
