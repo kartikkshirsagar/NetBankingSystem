@@ -33,13 +33,13 @@ public class DButilsLogin {
     }
 
     public static boolean ifUserExists(String uname) throws SQLException,ClassNotFoundException{
-        boolean ret=false;
+        boolean ret=false;//available
         Connection con=connectDB.connectToDB();
         Statement stmt=con.createStatement();
         ResultSet rs=stmt.executeQuery("SELECT * FROM login WHERE username='"+uname+"';");
         if(rs.next())
         {
-            ret=true;
+            ret=true;//exists and username not available
         }
         return ret;
     }

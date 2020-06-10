@@ -52,6 +52,7 @@
                     <input id="Username" type="text" class="validate" name="username" required>
                     <label>User Name</label>
                 </div>
+                <h5 id="username_msg"></h5>
                 <div class="passwd">
                     <input id="password" type="password" name="pass" class="validate" required>
                     <label>Password</label>
@@ -94,6 +95,7 @@
                     if(data.trim() === "success")
                     {
                         $('#msg').html("Successfully Registered");
+                        window.alert("Login With Credentials");
                     }
                     else
                     {
@@ -104,6 +106,36 @@
                     $('#msg').html("Something Went Wrong");
                 }
             })
+        });
+        $("#Username").keyup(function () {
+            let name = $(this).val();
+            console.log(name);
+            if(name != '')
+            {
+                $.ajax({
+                    type: 'POST',
+                    url : 'checkUser',
+                    data : {username : name},
+                    success : function (data) {
+                        if(data.trim() === "yes")
+                        {
+                            $('#username_msg').html("Username Available");
+                            $('#username_msg').css({"color" : "green"});
+                            // console.log(data);
+                        }
+                        else
+                        {
+                            console.log(data);
+                            $('#username_msg').html("Username Unavailable");
+                            $('#username_msg').css({"color" : "red"});
+                        }
+                    },
+                    error : function (data) {
+                        $('#username_msg').html("Went Wrong");
+                        // $(document).getElementById('username_msg').style.color = "red";
+                    }
+                })
+            }
         });
     });
 </script>

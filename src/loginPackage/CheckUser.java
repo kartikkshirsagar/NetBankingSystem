@@ -20,11 +20,16 @@ public class CheckUser extends HttpServlet {
         try {
             if(DButilsLogin.ifUserExists(username))
             {
-                //Write what you want to with printwriter.
-                //Here it means if there is a duplicate entry.
+                //username not available
+                pw.write("no");
+            }
+            else
+            {
+                pw.write("yes");
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
+            pw.write("error");
         }
     }
 
