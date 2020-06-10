@@ -163,7 +163,7 @@
                 <br>Your Balance:   <%if(auth){ out.println(UserDetails.getBalance());} %>
             </p>
 
-          <!--  <jsp:include page="logoutbutton.html" />    -->
+
 
 
             <!-- Above part can be made as a dashboard-->
