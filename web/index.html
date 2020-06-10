@@ -107,33 +107,36 @@
                 }
             })
         });
-        $('#Username').onkeyup(function () {
-            let name = $(this).val().trim();
+        $("#Username").keyup(function () {
+            let name = $(this).val();
+            console.log(name);
             if(name != '')
             {
                 $.ajax({
                     type: 'POST',
-                    url : 'CheckUser',
+                    url : 'checkUser',
                     data : {username : name},
                     success : function (data) {
-                        if(data.trim() === "success")
+                        if(data.trim() === "yes")
                         {
                             $('#username_msg').html("Username Available");
-                            $(document).getElementById('username_msg').style.color = "green";
+                            $('#username_msg').css({"color" : "green"});
+                            // console.log(data);
                         }
                         else
                         {
-                            $('#username_msg').html("Username UnAvailable");
-                            $(document).getElementById('username_msg').style.color = "red";
+                            console.log(data);
+                            $('#username_msg').html("Username Unavailable");
+                            $('#username_msg').css({"color" : "red"});
                         }
                     },
                     error : function (data) {
                         $('#username_msg').html("Went Wrong");
-                        $(document).getElementById('username_msg').style.color = "red";
+                        // $(document).getElementById('username_msg').style.color = "red";
                     }
                 })
             }
-        })
+        });
     });
 </script>
 </html>

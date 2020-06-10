@@ -20,11 +20,16 @@ public class CheckUser extends HttpServlet {
         try {
             if(DButilsLogin.ifUserExists(username))
             {
-                pw.write("fail");
+                //username not available
+                pw.write("no");
+            }
+            else
+            {
+                pw.write("yes");
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
-            pw.write("success");
+            pw.write("error");
         }
     }
 
