@@ -17,7 +17,7 @@
         HttpSession sess=request.getSession();
         if(sess.getAttribute("uname")==null)
         {
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
         }
     %>
     <h2>How much would you like to deposit</h2>
