@@ -30,7 +30,7 @@ public class transferUser extends HttpServlet {
         }
         int amount=Integer.parseInt(request.getParameter("amount"));
         int AccountN=Integer.parseInt(request.getParameter("Account"));
-        if(User.getBalance() >= amount)
+        if(User.getBalance() >= amount && amount >=0)
         {
             Boolean found=false;
             Account transfer=null;
