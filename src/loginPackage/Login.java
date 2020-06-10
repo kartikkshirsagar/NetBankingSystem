@@ -51,7 +51,8 @@ public class Login extends HttpServlet {
                 HttpSession sess = request.getSession();
                 sess.setAttribute("uname", name);
                 //response.sendRedirect("index.jsp");
-                response.sendRedirect("home.jsp");
+                //response.sendRedirect("home.jsp");
+                //response.sendRedirect("another.html");
                 //redirect to dashboard page
             }
         } catch (SQLException throwables) {
