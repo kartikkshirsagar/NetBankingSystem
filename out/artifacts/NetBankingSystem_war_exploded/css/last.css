@@ -1,6 +1,6 @@
 .body {
     background: #ff4931;
-    transition: all .5s;
+    transition: all 0.5s;
     padding: 1px;
 }
 
@@ -58,7 +58,7 @@
     width: 32%;
 }
 
-.veen>.wrapper {
+.veen>.wrapper1 {
     position: absolute;
     width: 25%;
     height: 150%;
@@ -71,7 +71,7 @@
     overflow: hidden;
 }
 
-.veen .wrapper>form {
+.veen .wrapper1>form {
     padding: 80px 28px 15px;
     width: 20%;
     transition: all 0.5s;
@@ -79,11 +79,11 @@
     height: 20%;
 }
 
-.veen .wrapper>form:focus {
+.veen .wrapper1>form:focus {
     outline: none;
 }
 
-.veen .wrapper>form>div {
+.veen .wrapper1>form>div {
     position: relative;
     margin-bottom: 15px;
 }
@@ -91,7 +91,7 @@
 
 /* here */
 
-.veen .wrapper label {
+.veen .wrapper1 label {
     position: absolute;
     top: -7px;
     font-size: 12px;
@@ -104,41 +104,41 @@
     pointer-events: none;
 }
 
-.veen .wrapper h3 {
+.veen .wrapper1 h3 {
     margin-bottom: 25px;
 }
 
-.veen .wrapper input {
+.veen .wrapper1 input {
     height: 40px;
     padding: 5px 15px;
     width: 60%;
     border: solid 1px #999;
 }
 
-.veen .wrapper input {
+.veen .wrapper1 input {
     height: 40px;
     padding: 5px 15px;
     width: 70%;
     border: solid 1px #999;
 }
 
-.veen .wrapper input:focus {
+.veen .wrapper1 input:focus {
     outline: none;
     border-color: #ff4931;
 }
 
-.veen .wrapper #login {
+.veen .wrapper1 #login {
     visibility: visible;
     width: 100%;
 }
 
-.veen .wrapper #trans {
+.veen .wrapper1 #trans {
     width: 100%;
     visibility: visible;
     /* transform: translateY(-100%) translateX(150%); */
 }
 
-.veen .wrapper #register {
+.veen .wrapper1 #register {
     width: 100%;
     visibility: visible;
     /* transform: translateY(-200%) translateX(300%); */
