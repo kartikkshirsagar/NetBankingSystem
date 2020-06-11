@@ -227,13 +227,13 @@
                         $('#1').fadeIn(700);
                         $('#2').fadeOut(700);
                         $('#3').fadeOut(700);
-                        $('#body_tag').css({"background" : "red"});
+                        $('#body_tag').css({"background" : "#d63031"});
                     });
                     $('#trans1').on('click', function(event) {
                         $('#1').fadeOut(700);
                         $('#2').fadeIn(700);
                         $('#3').fadeOut(700);
-                        $('#body_tag').css({"background" : "green"});
+                        $('#body_tag').css({"background" : "#00b894"});
                     });
                     $('#register1').on('click', function(event) {
                         $('#1').fadeOut(700);
