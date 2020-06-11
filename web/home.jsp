@@ -33,8 +33,9 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/last.css">
+
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/last.css">
 </head>
 
 <body>
@@ -163,7 +164,7 @@
     </div>
     <div class="content">
         <main>
-            <p>nitin ka recent video wala part</p>
+            <!--<p>nitin ka recent video wala part</p>-->
             <div class="body">
                 <div class="veen">
                     <div class="login-btn splits">
@@ -178,7 +179,7 @@
                         <p>Send Money To Someone Else</p>
                         <button id="register">Trasnfer Funds</button>
                     </div>
-                    <div id="1" class="wrapper">
+                    <div id="1" class="wrapper1">
                         <form id="login" class="loginform" tabindex="501" method="post" action="withdrawUser">
                             <h3>Withdraw Funds</h3>
                             <div class="mail">
@@ -190,7 +191,7 @@
                             </div>
                         </form>
                     </div>
-                    <div id="2" class="wrapper" style="left: 36%;display: none;">
+                    <div id="2" class="wrapper1" style="left: 36%;display: none;">
                         <form id="trans" class="transform" tabindex="500" method="post" action="depositUser">
                             <h3>Deposit Funds</h3>
                             <div class="mail">
@@ -202,9 +203,9 @@
                             </div>
                         </form>
                     </div>
-                    <div id="3" class="wrapper" style="left: 72%;display: none;">
+                    <div id="3" class="wrapper1" style="left: 72%;display: none;">
                         <form id="register" class="regform" tabindex="502" method="post" action="transferUser">
-                            <h3>Register</h3>
+                            <h3>Transfer Funds</h3>
                             <div class="name">
                                 <input type="number" name="Account">
                                 <label>Account Number of Receiver:</label>
