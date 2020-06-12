@@ -205,7 +205,7 @@
                     </div>
                     <div id="3" class="wrapper1" style="left: 72%;display: none;">
                         <form id="register" class="regform" tabindex="502" method="post" action="transferUser">
-                            <h3>Register</h3>
+                            <h3>Transfer Funds</h3>
                             <div class="name">
                                 <input type="number" name="Account">
                                 <label>Account Number of Receiver:</label>
