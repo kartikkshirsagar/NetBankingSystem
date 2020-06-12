@@ -28,7 +28,7 @@ public class mallHome extends HttpServlet {
         for(Product p :list){
             out.println("<form action='test' method='POST'>");
             out.println(p.Name);
-            out.println("<input type='text' value='"+p.id+"' name='id'>");
+            out.println("<input type='hidden' value='"+p.id+"' name='id'>");
             out.println("<input type='submit' value='Add to cart'>");
             out.println("</form>\n");
         }

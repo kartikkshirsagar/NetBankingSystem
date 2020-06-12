@@ -28,9 +28,14 @@ public class Cart extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        out.println("<!DOCTYPE html><html><body>");
         for(Product p :list){
-            out.println(p.Name);
-            out.println("\n");
+            out.println("<form action='test2' method='POST'>");
+            out.println(p.Name+" " + p.Quantity);
+            out.println("<input type='hidden' value='"+p.id+"' name='id'>");
+            out.println("<input type='submit' value='Remove from cart'>");
+            out.println("</form>\n");
         }
+        out.println("</body></html>");
     }
 }

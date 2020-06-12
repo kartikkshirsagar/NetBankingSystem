@@ -101,4 +101,22 @@
         <servlet-name>Test</servlet-name>
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Test2</servlet-name>
+        <servlet-class>MallPack.Test2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Test2</servlet-name>
+        <url-pattern>/test2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>MallPack.Search</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
 </web-app>
