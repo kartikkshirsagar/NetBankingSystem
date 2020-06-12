@@ -5,7 +5,7 @@
 }
 
 .veen {
-    width: 90%;
+    width: 99%;
     margin: 100px auto;
     background: rgba(255, 255, 255, .5);
     min-height: 400px;
@@ -55,15 +55,15 @@
     vertical-align: middle;
     text-align: center;
     color: #fff;
-    width: 32%;
+    width: 33%;
 }
 
 .veen>.wrapper1 {
     position: absolute;
-    width: 25%;
-    height: 150%;
+    width: 30%;
+    height: 135%;
     top: -10%;
-    left: 2%;
+    left: 0%;
     background: #fff;
     box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
     transition: all .5s;
