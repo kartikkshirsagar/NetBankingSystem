@@ -165,19 +165,19 @@
     <div class="content">
         <main>
             <!--<p>nitin ka recent video wala part</p>-->
-            <div class="body">
+            <div class="body" id="body_tag">
                 <div class="veen">
                     <div class="login-btn splits">
                         <p>Withdraw Money From Your Account</p>
-                        <button id="login">Withdraw Funds</button>
+                        <button id="login1">Withdraw Funds</button>
                     </div>
                     <div class="trans-btn splits">
                         <p>Deposit Money To Your Account</p>
-                        <button id="trans">Deposit Funds</button>
+                        <button id="trans1">Deposit Funds</button>
                     </div>
                     <div class="rgstr-btn splits">
                         <p>Send Money To Someone Else</p>
-                        <button id="register">Trasnfer Funds</button>
+                        <button id="register1">Trasnfer Funds</button>
                     </div>
                     <div id="1" class="wrapper1">
                         <form id="login" class="loginform" tabindex="501" method="post" action="withdrawUser">
@@ -205,7 +205,7 @@
                     </div>
                     <div id="3" class="wrapper1" style="left: 72%;display: none;">
                         <form id="register" class="regform" tabindex="502" method="post" action="transferUser">
-                            <h3>Register</h3>
+                            <h3>Transfer Funds</h3>
                             <div class="name">
                                 <input type="number" name="Account">
                                 <label>Account Number of Receiver:</label>
@@ -223,20 +223,23 @@
             </div>
             <script>
                 $(document).ready(function() {
-                    $('#login').on('click', function(event) {
+                    $('#login1').on('click', function(event) {
                         $('#1').fadeIn(700);
                         $('#2').fadeOut(700);
                         $('#3').fadeOut(700);
+                        $('#body_tag').css({"background" : "red"});
                     });
-                    $('#trans').on('click', function(event) {
+                    $('#trans1').on('click', function(event) {
                         $('#1').fadeOut(700);
                         $('#2').fadeIn(700);
                         $('#3').fadeOut(700);
+                        $('#body_tag').css({"background" : "green"});
                     });
-                    $('#register').on('click', function(event) {
+                    $('#register1').on('click', function(event) {
                         $('#1').fadeOut(700);
                         $('#2').fadeOut(700);
                         $('#3').fadeIn(700);
+                        $('#body_tag').css({"background" : "#01a3a4"});
                     });
                 });
             </script>

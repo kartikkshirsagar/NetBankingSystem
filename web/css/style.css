@@ -39,18 +39,20 @@
 }
 
 body {
-    height: 1000px;
+    height: 735px;
 }
 
 .wrapper {
-    margin-top: 3.5rem;
+    margin-top: -2.5rem;
 }
 
 .wrapper .sideMenu {
     position: fixed;
     top: 0;
+    padding: 1px;
     bottom: 0;
-    margin: 3.5rem auto auto;
+    margin: 62.38px auto auto;
+    height: 597px;
     left: 0;
     width: 12.5rem;
     -webkit-transition: all ease 0.25s;
@@ -86,7 +88,7 @@ body {
     vertical-align: middle;
     height: 2rem;
     width: 2rem;
-    display: -webkit-inline-box;
+    /*display: -webkit-inline-box;*/
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-pack: center;
@@ -98,7 +100,7 @@ body {
 }
 
 .nav-link .text {
-    font-size: 0.875rem;
+    font-size: 100%;
 }
 
 @media (min-width: 992px) {
