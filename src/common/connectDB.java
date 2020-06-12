@@ -13,9 +13,5 @@ public class connectDB {
         return con;
     }
     //cart database will contain a table for each username of nbs db
-
-
-
-
 }
 

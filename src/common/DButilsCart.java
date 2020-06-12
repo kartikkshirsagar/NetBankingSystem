@@ -1,7 +1,10 @@
 package common;
 
+import MallPack.Product;
+
 import java.sql.*;
 
+import static common.DButilsProduct.ProductSold;
 import static common.connectDB.connectToCart;
 
 public class DButilsCart {
@@ -41,28 +44,33 @@ public class DButilsCart {
 
     public static void UpdateCart(String Username,int product_id) throws SQLException, ClassNotFoundException {
         Connection con=connectToCart();
-        Boolean already;
-        already=doesTableExist(Username);
-        if(already==false)
+        Boolean already,updateproduct;
+        updateproduct= ProductSold(product_id);
+        if(updateproduct)
         {
-            CreateCart(Username);
+            already=doesTableExist(Username);
+            if(already==false)
+            {
+                CreateCart(Username);
+            }
+            Statement stmt=con.createStatement();
+            String query="SELECT * FROM "+Username+" WHERE product_id="+product_id+"";
+            ResultSet res=stmt.executeQuery(query);
+            if(res.next())
+            {
+                //Some items of this id already exist
+                //Increment this here and update database
+                int quantity=res.getInt("quantity");//quantity
+                quantity=quantity+1;
+                String update="UPDATE "+Username+" set quantity="+quantity+"";
+                stmt.executeUpdate(update);
+            }
+            else
+            {
+                String insert="INSERT INTO "+Username+" VALUES ("+product_id+","+"1 )";
+                stmt.executeUpdate(insert);
+            }
         }
-        Statement stmt=con.createStatement();
-        String query="SELECT * FROM "+Username+" WHERE product_id="+product_id+"";
-        ResultSet res=stmt.executeQuery(query);
-        if(res.next())
-        {
-            //Some items of this id already exist
-            //Increment this here and update database
-            int quantity=res.getInt("quantity");//quantity
-            quantity=quantity+1;
-            String update="UPDATE "+Username+" set quantity="+quantity+"";
-            stmt.executeUpdate(update);
-        }
-        else
-        {
-            String insert="INSERT INTO "+Username+" VALUES ("+product_id+","+"1 )";
-            stmt.executeUpdate(insert);
-        }
+
     }
 }
