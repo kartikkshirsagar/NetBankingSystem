@@ -51,4 +51,32 @@ public class DButilsProduct {
         con.close();
         return retval;
     }
+
+    public static void ProductQuantityUpdate(int product_id) throws SQLException, ClassNotFoundException {
+        Connection con=connectToDB();
+        Statement stmt=con.createStatement();
+        ResultSet res=stmt.executeQuery("SELECT * FROM products WHERE id="+product_id);
+        if(res.next())
+        {
+            String query="UPDATE products set quatity="+(res.getInt("quantity")+1)+" WHERE id="+product_id;
+            stmt.executeUpdate(query);
+        }
+        /*
+        else
+        {
+            String query="INSERT INTO products VALUES ("+P.getName()+","+P.getId()+","+P.getPrice()+","+P.getDescription()+",1)";
+            stmt.executeUpdate(query);
+        }
+         */
+    }
+
+    public static Product getProductInfo(int product_id) throws SQLException, ClassNotFoundException {
+        Connection con=connectToDB();
+        Statement stmt=con.createStatement();
+        ResultSet res=stmt.executeQuery("SELECT * FROM products WHERE id="+product_id);
+        if(res.next())
+        {
+            return new Product(res.getString("name"),res.getInt("id"),res.getInt("price"),res.getString("description"),res.getInt("quantity"));
+        }
+    }
 }
