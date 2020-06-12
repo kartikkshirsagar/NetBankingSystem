@@ -14,11 +14,7 @@ public class connectDB {
     }
     //cart database will contain a table for each username of nbs db
 
-    public static Connection connectToProducts() throws ClassNotFoundException,SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/products","root","root");
-        return con;
-    }
+
 
 
 }
