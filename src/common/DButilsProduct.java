@@ -28,7 +28,7 @@ public class DButilsProduct {
         con.close();
         return products;
     }
-
+/*
     public static Boolean ProductSold(int product_id) throws SQLException, ClassNotFoundException {
         //return will tell is succesful or not
         Boolean retval=false;
@@ -67,8 +67,8 @@ public class DButilsProduct {
             String query="INSERT INTO products VALUES ("+P.getName()+","+P.getId()+","+P.getPrice()+","+P.getDescription()+",1)";
             stmt.executeUpdate(query);
         }
-         */
-    }
+
+    }*/
 
     public static Product getProductInfo(int product_id) throws SQLException, ClassNotFoundException {
         Connection con=connectToDB();
@@ -76,7 +76,8 @@ public class DButilsProduct {
         ResultSet res=stmt.executeQuery("SELECT * FROM products WHERE id="+product_id);
         if(res.next())
         {
-            return new Product(res.getString("name"),res.getInt("id"),res.getInt("price"),res.getString("description"),res.getInt("quantity"));
+            return new Product(res.getString("name"),res.getInt("id"),res.getInt("price"),res.getString("description"),);
         }
+        return null;
     }
 }

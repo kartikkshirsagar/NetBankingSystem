@@ -15,8 +15,9 @@ public class DButilsCart {
         Connection con=connectToCart();
         if(con!=null)
         {
+            Username=Username.toLowerCase();
             DatabaseMetaData dbm=con.getMetaData();
-            ResultSet tables=dbm.getTables(null,null,Username,null);
+            ResultSet tables=dbm.getTables(null,null,Username.toLowerCase(),null);
             if(tables.next())
             {
                 retval=true;
@@ -46,10 +47,10 @@ public class DButilsCart {
 
     public static void addToCart(String Username,int product_id) throws SQLException, ClassNotFoundException {
         Connection con=connectToCart();
-        Boolean already,updateproduct;
+        Boolean already;
         //updateproduct= ProductSold(product_id);
-        if(updateproduct)
-        {
+        //if(updateproduct)
+        //{
             already=doesTableExist(Username);
             if(already==false)
             {
@@ -72,7 +73,7 @@ public class DButilsCart {
                 String insert="INSERT INTO "+Username+" VALUES ("+product_id+","+"1 )";
                 stmt.executeUpdate(insert);
             }
-        }
+        //}
     }
 
     public static void removeFromCart(String Username,int product_id) throws SQLException, ClassNotFoundException {
@@ -95,7 +96,7 @@ public class DButilsCart {
                 query="UPDATE "+Username+" set quantity="+q+" WHERE product_id="+product_id;
                 stmt.executeUpdate(query);
             }
-            ProductQuantityUpdate(product_id);
+            //ProductQuantityUpdate(product_id);
         }
     }
 
