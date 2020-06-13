@@ -1,13 +1,17 @@
 package common;
 
 import MallPack.Product;
+import PayPackage.Account;
 
 import java.net.UnknownServiceException;
 import java.sql.*;
 import java.util.ArrayList;
 
+import static common.DButilsBank.UpdateBal;
+import static common.DButilsBank.getAccObj;
 import static common.DButilsProduct.*;
 import static common.connectDB.connectToCart;
+import static common.connectDB.connectToDB;
 
 public class DButilsCart {
     public static Boolean doesTableExist(String Username) throws SQLException, ClassNotFoundException {
@@ -125,5 +129,27 @@ public class DButilsCart {
 
         }
         return products;
+    }
+
+    public static Boolean BuyStuff(String Username,int Total_cost) throws SQLException, ClassNotFoundException {
+        Connection cart=connectToCart();
+        Boolean retval;
+       Account User=getAccObj(Username);
+       if(User.getBalance() >= Total_cost)
+       {
+           retval=true;
+           Statement stmt=cart.createStatement();
+           String drop="DROP TABLE "+Username.toLowerCase();
+           stmt.executeUpdate(drop);
+           User.setBalance(User.getBalance()-Total_cost);
+           UpdateBal(User);
+           cart.close();
+       }
+       else
+       {
+           retval=false;
+           //Transaction not possible,redirect to error page...
+       }
+       return retval;
     }
 }
