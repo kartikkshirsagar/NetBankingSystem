@@ -138,7 +138,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="mall" class="nav-link px-2">
                         <i class="material-icons icon"> border_all </i
                         ><span class="text">Mall</span></a
                     >

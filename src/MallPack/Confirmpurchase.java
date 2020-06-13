@@ -37,7 +37,7 @@ public class Confirmpurchase extends HttpServlet {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            out.println("your order received and your current balance is ");
+            out.println("Your order is received and your current balance is ");
             out.println(User.getBalance());
         }
         else

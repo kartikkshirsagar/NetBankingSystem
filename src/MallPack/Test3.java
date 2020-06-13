@@ -42,12 +42,20 @@ public class Test3 extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
+//        try  {
+//            out.println("<meta http-equiv=\"Refresh\" content=\"3;url=confirmpurchase\">");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         out.println("<form action='confirmpurchase' method='POST'>");
         out.println("<input type='hidden' value='"+total+"' name='amount'>");
         out.println("<input type='submit' value='Confirm Purchase' name='purchase'>");
         out.println("</form>\n");
         out.println("</body></html>");
+        response.setContentType("text/html;charset=UTF-8");
+
     }
+
+
 
 }
