@@ -84,7 +84,7 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="home.jsp" class="nav-link px-2">
                         <i class="material-icons icon">
                             dashboard
                         </i>
@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="mall" class="nav-link px-2">
+                    <a href="mallHome.jsp" class="nav-link px-2">
                         <i class="material-icons icon"> border_all </i
                         ><span class="text">Mall</span></a
                     >
@@ -114,7 +114,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2 sideMenuToggler">
+                    <a href="landing.html" class="nav-link px-2 sideMenuToggler">
                         <i class="material-icons icon expandView ">
                             keyboard_arrow_left
                         </i>
