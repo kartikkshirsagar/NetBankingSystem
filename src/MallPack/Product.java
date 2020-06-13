@@ -2,6 +2,9 @@ package MallPack;
 
 import java.util.NavigableMap;
 
+import netscape.javascript.JSObject;
+import org.json.JSONException;
+import org.json.JSONObject;
 public class Product {
     String Name;
     int id;
@@ -61,4 +64,5 @@ public class Product {
         this.price=price;
         Quantity=quantity;
     }
+
 }
