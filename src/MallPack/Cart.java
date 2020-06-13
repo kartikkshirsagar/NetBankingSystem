@@ -18,27 +18,29 @@ public class Cart extends HttpServlet {
     }
 
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out=response.getWriter();
-        HttpSession sess=request.getSession();
-        ArrayList<Product> list= new ArrayList<Product>();
-        try {
-            list = common.DButilsCart.getCart(sess.getAttribute("uname").toString());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        out.println("<!DOCTYPE html><html><body>");
-        for(Product p :list){
-            out.println("<form action='test2' method='POST'>");
-            out.println(p.Name+" " + p.Quantity);
-            out.println("<input type='hidden' value='"+p.id+"' name='id'>");
-            out.println("<input type='submit' value='Remove from cart' name='remove'>");
-            out.println("</form>\n");
-        }
-        out.println("<form action='test3' method='POST'>");
-        out.println("<input type='submit' value='Purchase' name='purchase'>");
-        out.println("</form>\n");
-        out.println("</body></html>");
+//        PrintWriter out=response.getWriter();
+//        HttpSession sess=request.getSession();
+//        ArrayList<Product> list= new ArrayList<Product>();
+//        try {
+//            list = common.DButilsCart.getCart(sess.getAttribute("uname").toString());
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        out.println("<!DOCTYPE html><html><body>");
+//        for(Product p :list){
+//            out.println("<form action='test2' method='POST'>");
+//            out.println(p.Name+" " + p.Quantity);
+//            out.println("<input type='hidden' value='"+p.id+"' name='id'>");
+//            out.println("<input type='submit' value='Remove from cart' name='remove'>");
+//            out.println("</form>\n");
+//        }
+//        out.println("<form action='test3' method='POST'>");
+//        out.println("<input type='submit' value='Purchase' name='purchase'>");
+//        out.println("</form>\n");
+//        out.println("</body></html>");
+
+        response.sendRedirect("cart.jsp");
     }
 }
