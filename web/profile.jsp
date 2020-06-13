@@ -13,6 +13,29 @@
 
 
 <body>
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        background-color: #676767;
+    }
+
+    .title {
+        color: dodgerblue;
+        font-size: 18px;
+    }
+    img{
+        border-radius: 10%;
+        display: block;
+        box-shadow: black;
+
+    }
+    p{
+        font-size: 18px;
+    }
+</style>
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     HttpSession sess = request.getSession();
@@ -40,9 +63,15 @@
 %>
 <%@ include file="basic.jsp"%>
 
-<h1 style="margin-top: 200px;margin-left:200px;color: dodgerblue">Your Account Number is: <% if(auth) {out.println(UserDetails.getAccount_Number());} %>
-    <br>Your Balance: <%if(auth){ out.println(UserDetails.getBalance());} %>
-</h1>
+<div class="card col-3" style="margin-top: 50px;margin-left: 40%;background-color: #676767">
+    <img src="image/person.jpg" alt="John" style="width:100% ;height:350px">
+    <h1 style="color: black"><%if(auth){ out.println(UserDetails.getAccount_Holder());}%></h1>
+    <p class="title">Your username is <%out.println(sess.getAttribute("uname").toString());%></p>
+    <p style="color: dodgerblue">Your Account Number is: <% if(auth) {out.println(UserDetails.getAccount_Number());} %>
+        <br>Your Balance: <%if(auth){ out.println(UserDetails.getBalance());} %>
+    </p>
+</div>
+
 
 
             <!-- Above part can be made as a dashboard-->

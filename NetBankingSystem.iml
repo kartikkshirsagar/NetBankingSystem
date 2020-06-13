@@ -34,5 +34,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="java-json" level="project" />
+    <orderEntry type="library" name="twitter-bootstrap" level="application" />
   </component>
 </module>
