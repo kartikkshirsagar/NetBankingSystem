@@ -37,7 +37,7 @@ public class Cart extends HttpServlet {
             out.println("</form>\n");
         }
         out.println("<form action='test3' method='POST'>");
-        out.println("<input type='submit' value='Confirm Purchase' name='purchase'>");
+        out.println("<input type='submit' value='Purchase' name='purchase'>");
         out.println("</form>\n");
         out.println("</body></html>");
     }

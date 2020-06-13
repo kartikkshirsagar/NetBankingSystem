@@ -119,6 +119,16 @@
         <servlet-name>Test3</servlet-name>
         <url-pattern>/test3</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ConfirmPurchase</servlet-name>
+        <servlet-class>MallPack.Confirmpurchase</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmPurchase</servlet-name>
+        <url-pattern>/confirmpurchase</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>Search</servlet-name>
         <servlet-class>MallPack.Search</servlet-class>
