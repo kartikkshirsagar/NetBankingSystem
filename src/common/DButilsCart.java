@@ -15,9 +15,8 @@ public class DButilsCart {
         Connection con=connectToCart();
         if(con!=null)
         {
-            Username=Username.toLowerCase();
             DatabaseMetaData dbm=con.getMetaData();
-            ResultSet tables=dbm.getTables(null,null,Username.toLowerCase(),null);
+            ResultSet tables=dbm.getTables(null,null,Username,null);
             if(tables.next())
             {
                 retval=true;
@@ -35,11 +34,12 @@ public class DButilsCart {
         //This method does not check anything about existing tables
         //Handle in page backend.....
         Connection con=connectToCart();
+        System.out.println("in create cart");
         if(con!=null)
         {
             Statement stmt=con.createStatement();
-            String query="CREATE TABLE "+Username+" "+"(product_id INT NOT NULL," +
-                    "quantity INT NOT NULL )";//Cost is not kept here,get via other backend
+            String query="CREATE TABLE "+Username.toLowerCase()+" "+"(product_id INT NOT NULL," +
+                    "quantity INT NOT NULL)";//Cost is not kept here,get via other backend
             stmt.executeUpdate(query);
             con.close();
         }
@@ -47,33 +47,31 @@ public class DButilsCart {
 
     public static void addToCart(String Username,int product_id) throws SQLException, ClassNotFoundException {
         Connection con=connectToCart();
-        Boolean already;
+        Boolean already,updateproduct;
         //updateproduct= ProductSold(product_id);
-        //if(updateproduct)
-        //{
-            already=doesTableExist(Username);
-            if(already==false)
-            {
-                CreateCart(Username);
-            }
-            Statement stmt=con.createStatement();
-            String query="SELECT * FROM "+Username+" WHERE product_id="+product_id+"";
-            ResultSet res=stmt.executeQuery(query);
-            if(res.next())
-            {
-                //Some items of this id already exist
-                //Increment this here and update database
-                int quantity=res.getInt("quantity");//quantity
-                quantity=quantity+1;
-                String update="UPDATE "+Username+" set quantity="+quantity+"";
-                stmt.executeUpdate(update);
-            }
-            else
-            {
-                String insert="INSERT INTO "+Username+" VALUES ("+product_id+","+"1 )";
-                stmt.executeUpdate(insert);
-            }
-        //}
+        already=doesTableExist(Username);
+        if(already==false)
+        {
+            CreateCart(Username);
+        }
+        Statement stmt=con.createStatement();
+        String query="SELECT * FROM "+Username+" WHERE product_id="+product_id+"";
+        ResultSet res=stmt.executeQuery(query);
+        if(res.next())
+        {
+            //Some items of this id already exist
+            //Increment this here and update database
+            int quantity=res.getInt("quantity");//quantity
+            quantity=quantity+1;
+            String update="UPDATE "+Username+" set quantity="+quantity+"";
+            stmt.executeUpdate(update);
+        }
+        else
+        {
+            String insert="INSERT INTO "+Username+" VALUES ('"+product_id+"',"+"1 )";
+            stmt.executeUpdate(insert);
+        }
+
     }
 
     public static void removeFromCart(String Username,int product_id) throws SQLException, ClassNotFoundException {
@@ -102,7 +100,7 @@ public class DButilsCart {
 
     public static ArrayList<Product> getCart(String Username) throws SQLException, ClassNotFoundException {
         Connection con=connectToCart();
-        ArrayList<Product> products=null;
+        ArrayList<Product> products=new ArrayList<Product>();
         if(doesTableExist(Username)==false)
         {
             //Cart is empty
@@ -112,15 +110,19 @@ public class DButilsCart {
             Statement stmt=con.createStatement();
             ResultSet res=stmt.executeQuery("SELECT * FROM "+Username);
             int product_id,quantity;
-            Product P=null;
+            double total=0;
+            Product P;
             while(res.next())
             {
-                product_id=res.getInt("id");
+                product_id=res.getInt("product_id");
                 quantity=res.getInt("quantity");
                 P=getProductInfo(product_id);
                 P.setQuantity(quantity);
-                products.add(P);
+                int price=P.getPrice();
+
+                products.add(new Product(P.getName(),product_id,price,P.getDescription(),quantity));
             }
+
         }
         return products;
     }

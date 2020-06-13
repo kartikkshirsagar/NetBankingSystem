@@ -1,5 +1,7 @@
 package MallPack;
 
+import java.util.NavigableMap;
+
 public class Product {
     String Name;
     int id;
@@ -53,5 +55,10 @@ public class Product {
         this.price = price;
         this.description = description;
         Quantity = quantity;
+    }
+    public Product(int  id,int price,int quantity){
+        this.id=id;
+        this.price=price;
+        Quantity=quantity;
     }
 }
