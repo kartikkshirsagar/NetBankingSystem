@@ -15,6 +15,12 @@ import java.util.ArrayList;
 public class mallHome extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //response.sendRedirect("mallHome.jsp");
+        HttpSession sess=request.getSession();
+        if(sess.getAttribute("uname")==null)
+        {
+            response.sendRedirect("index.jsp");
+            return;
+        }
         PrintWriter out=response.getWriter();
         ArrayList<Product> list= null;
         try {
