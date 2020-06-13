@@ -15,16 +15,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
+            let myobj,txt="";
             $.ajax({
                 url : "mall",
                 success: function (response) {
-                    console.log(response);
+                    myobj = JSON.parse(response);
+                    txt += "<table border='1'>"
+                    for (x in myobj) {
+                        txt += "<tr><td>" + myobj[x].name + "</td></tr>";
+                    }
+                    txt += "</table>"
+                    document.getElementById("demo").innerHTML = txt;
                 }
             });
         });
     </script>
 </head>
 <body>
+<p id="demo"></p>
+
 <div class="container" id="container">
     <h2 id="heading"></h2>
     <h3 id="Quantity">Quantity : </h3>
