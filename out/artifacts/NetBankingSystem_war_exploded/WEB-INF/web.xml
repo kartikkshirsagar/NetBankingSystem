@@ -112,6 +112,14 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Test3</servlet-name>
+        <servlet-class>MallPack.Test3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Test3</servlet-name>
+        <url-pattern>/test3</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>Search</servlet-name>
         <servlet-class>MallPack.Search</servlet-class>
     </servlet>

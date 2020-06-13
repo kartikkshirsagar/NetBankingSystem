@@ -36,8 +36,8 @@ public class Test extends HttpServlet {
                 e.printStackTrace();
             }
 
-
         }
+        response.sendRedirect("mall");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

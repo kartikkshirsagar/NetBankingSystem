@@ -39,7 +39,7 @@ public class DButilsCart {
         {
             Statement stmt=con.createStatement();
             String query="CREATE TABLE "+Username.toLowerCase()+" "+"(product_id INT NOT NULL," +
-                    "quantity INT NOT NULL )";//Cost is not kept here,get via other backend
+                    "quantity INT NOT NULL)";//Cost is not kept here,get via other backend
             stmt.executeUpdate(query);
             con.close();
         }
@@ -110,15 +110,19 @@ public class DButilsCart {
             Statement stmt=con.createStatement();
             ResultSet res=stmt.executeQuery("SELECT * FROM "+Username);
             int product_id,quantity;
-            Product P=null;
+            double total=0;
+            Product P;
             while(res.next())
             {
                 product_id=res.getInt("product_id");
                 quantity=res.getInt("quantity");
                 P=getProductInfo(product_id);
                 P.setQuantity(quantity);
-                products.add(P);
+                int price=P.getPrice();
+
+                products.add(new Product(P.getName(),product_id,price,P.getDescription(),quantity));
             }
+
         }
         return products;
     }
