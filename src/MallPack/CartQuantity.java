@@ -19,7 +19,7 @@ public class CartQuantity extends HttpServlet {
         HttpSession sess=request.getSession();
         if(sess!=null)
         {
-            String Username=sess.getAttribute("uname").toString();
+            String Username= (String) sess.getAttribute("uname");
             ArrayList<Product> List= null;
             try {
                 List = getCart(Username);
