@@ -18,7 +18,7 @@ public class Confirmpurchase extends HttpServlet {
         HttpSession sess=request.getSession();
         Account User=null;
         PrintWriter out = response.getWriter();
-        int amount=Integer.parseInt(request.getParameter("amount"));
+        int amount=Integer.parseInt(request.getParameter("amount").trim());
         String Username=sess.getAttribute("uname").toString();
         try {
             User= DButilsBank.getAccObj(Username);
