@@ -99,8 +99,8 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#" class="notification">
-                        <span>Inbox</span>
+                    <a href="cart" class="notification">
+                        <span>My cart</span>
                         <span class="badge" id="prod_num">0</span>
                     </a>
                 </li>
