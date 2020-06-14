@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static common.DButilsCart.getCart;
@@ -18,8 +19,15 @@ public class CartQuantity extends HttpServlet {
         HttpSession sess=request.getSession();
         if(sess!=null)
         {
-            String Username=sess.getAttribute('uname');
-            ArrayList<Product> List=getCart(Username);
+            String Username= (String) sess.getAttribute("uname");
+            ArrayList<Product> List= null;
+            try {
+                List = getCart(Username);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             int size=List.size();
             PrintWriter out=response.getWriter();
             out.println(size);
