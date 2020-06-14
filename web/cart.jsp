@@ -2,7 +2,8 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="PayPackage.Account" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="MallPack.Product" %><%--
+<%@ page import="MallPack.Product" %>
+<%@ page import="common.DButilsCart" %><%--
   Created by IntelliJ IDEA.
   User: karti
   Date: 13/06/2020
@@ -44,6 +45,7 @@
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     HttpSession sess = request.getSession();
+    String Username;
     boolean auth=true;
     ArrayList<Product> list=new ArrayList<Product>();
     Account UserDetails = null;
@@ -51,7 +53,7 @@
         response.sendRedirect("index.jsp");
         auth=false;
     } else {
-        String Username = sess.getAttribute("uname").toString();
+        Username = sess.getAttribute("uname").toString();
         UserDetails = null;
         list=common.DButilsCart.getCart(Username);
         if (!Username.equals("")) {
