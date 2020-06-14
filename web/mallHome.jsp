@@ -75,7 +75,8 @@
                                     url : "cartquantity",
                                     success:function (data) {
                                         $('#prod_num').html(data.toString());
-                                        $('#modal_button').click();
+                                        // $('#modal_button').click();
+                                        $('#exampleModal').modal('show')
                                     }
                                 })
                             }
@@ -140,7 +141,7 @@
                 -->
             </ul>
 <%--btn by nitin--%>
-            <button type="button" id="modal_button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" aria-hidden="true"></button>
+
             <div class="navbar-form navbar-right" role="search">
                 <form method="post" action="keyword.jsp">
                 <div class="form-group">
@@ -294,6 +295,7 @@
     &copy; 2014 | &nbsp; All Rights Reserved | &nbsp; www.yourdomain.com | &nbsp; 24x7 support | &nbsp; Email us: info@yourdomain.com
 </div>
 -->
+<%--<button type="button" id="modal_button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" aria-hidden="true"></button>--%>
 <!--Footer end -->
 <!--Core JavaScript file  -->
 <script src="assets1/js/jquery-1.10.2.js"></script>
