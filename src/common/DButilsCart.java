@@ -152,7 +152,7 @@ public class DButilsCart {
         //{
         //   retval=true;
         Statement stmt = cart.createStatement();
-        String drop = "DROP TABLE " + Username.toLowerCase();
+        String drop = "DROP TABLE " + Username.toLowerCase()+"";
         stmt.executeUpdate(drop);
         //User.setBalance(User.getBalance()-Total_cost);
         //UpdateBal(User);
