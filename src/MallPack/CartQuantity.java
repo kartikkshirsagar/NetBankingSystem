@@ -23,7 +23,9 @@ public class CartQuantity extends HttpServlet {
             ArrayList<Product> List= null;
             try {
                 List = getCart(Username);
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
             int size=List.size();

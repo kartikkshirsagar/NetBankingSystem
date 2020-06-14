@@ -153,4 +153,12 @@ public class DButilsCart {
        return retval;
        */
     }
+    public static int getTotal(ArrayList<Product> list)
+    {
+        int sum=0;
+        for(Product p:list){
+            sum=sum+p.getPrice();
+        }
+        return sum;
+    }
 }
