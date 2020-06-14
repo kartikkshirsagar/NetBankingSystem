@@ -46,6 +46,7 @@ public class mallHome extends HttpServlet {
         else
         {
             String keyword= (String) sess.getAttribute("key");
+            sess.removeAttribute("key");
             PrintWriter out=response.getWriter();
             ArrayList<Product> list=new ArrayList<Product>();
             try {
