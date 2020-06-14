@@ -54,9 +54,10 @@
             <form id="login" class="loginform" tabindex="501" method="post" action="withdrawUser">
                 <h3>Withdraw Funds</h3>
                 <div class="mail">
-                    <input type="number" name="amount">
+                    <input type="number" id="withdraw_id" name="amount">
                     <label>Amount to Withdraw:</label>
                 </div>
+                <h3 id="err"></h3>
                 <div class="submit">
                     <button class="dark">Withdraw</button>
                 </div>
@@ -66,9 +67,10 @@
             <form id="trans" class="transform" tabindex="500" method="post" action="depositUser">
                 <h3>Deposit Funds</h3>
                 <div class="mail">
-                    <input type="number" name="amount">
+                    <input type="number" id="deposit_id" name="amount">
                     <label>Amount to Deposit:</label>
                 </div>
+                <h3 id="err1"></h3>
                 <div class="submit">
                     <button class="dark">Deposit</button>
                 </div>
@@ -78,13 +80,15 @@
             <form id="register" class="regform" tabindex="502" method="post" action="transferUser">
                 <h3>Transfer Funds</h3>
                 <div class="name">
-                    <input type="number" name="Account">
+                    <input type="number" id="Account_id" name="Account">
                     <label>Account Number of Receiver:</label>
                 </div>
+                <h3 id="err2"></h3>
                 <div class="mail">
-                    <input type="number" name="amount">
+                    <input type="number" id="Amount_id" name="amount">
                     <label>Amount to Transfer</label>
                 </div>
+                <h3 id="err3"></h3>
                 <div class="submit">
                     <button class="dark">Transfer Funds</button>
                 </div>
@@ -93,5 +97,57 @@
     </div>
     </div>
 </main>
+<script>
+    $(document).ready(function () {
+        $("#withdraw_id").keyup(function (event) {
+            let name = $(this).val();
+            name = parseInt(name);
+            if (name <= 0) {
+                console.log(name);
+                $('#err').html("Invalid amt");
+                event.preventDefault();
+            } else {
+                console.log(name);
+                $('#err').html("Valid amt");
+            }
+        });
+        $("#deposit_id").keyup(function (event) {
+            let name = $(this).val();
+            name = parseInt(name);
+            if (name <= 0) {
+                console.log(name);
+                $('#err1').html("Invalid amt");
+                event.preventDefault();
+            } else {
+                console.log(name);
+                $('#err1').html("Valid amt");
+            }
+        });
+        $("#Account_id").keyup(function (event) {
+            let name = $(this).val();
+            name = parseInt(name);
+            if (name <= 0) {
+                console.log(name);
+                $('#err2').html("Invalid Acc");
+                event.preventDefault();
+            } else {
+                console.log(name);
+                $('#err2').html("Valid Acc");
+            }
+        });
+        $("#Amount_id").keyup(function (event) {
+            let name = $(this).val();
+            name = parseInt(name);
+            if (name <= 0) {
+                console.log(name);
+                $('#err3').html("Invalid amt");
+                event.preventDefault();
+            } else {
+                console.log(name);
+                $('#err3').html("Valid amt");
+            }
+        });
+    })
+</script>
 </body>
 </html>
