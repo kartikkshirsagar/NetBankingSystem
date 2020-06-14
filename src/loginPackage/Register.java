@@ -22,7 +22,7 @@ public class Register extends HttpServlet {
         try {
             //DButilsLogin.InsertLogin(username,pass);
             //DButilsLogin.InsertAcc(name);
-            DButilsLogin.InsertIntoDatabase(username,pass);
+            DButilsLogin.InsertIntoDatabase(username,pass,name);
             out.println("success");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
