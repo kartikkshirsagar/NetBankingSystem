@@ -71,7 +71,7 @@
                         class="dropdown-menu dropdown-menu-right"
                         aria-labelledby="navbarDropdown"
                 >
-                    <a class="dropdown-item" href="#">My Cart</a>
+                    <a class="dropdown-item" href="cart.jsp">My Cart</a>
                    <!-- <a class="dropdown-item" href="#">Another action</a>-->
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="logout.jsp">Logout</a>
