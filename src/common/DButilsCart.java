@@ -132,19 +132,19 @@ public class DButilsCart {
     }
 
     public static void DropCart(String Username) throws SQLException, ClassNotFoundException {
-        Connection cart=connectToCart();
+        Connection cart = connectToCart();
         //Boolean retval;
-       Account User=getAccObj(Username);
-       //if(User.getBalance() >= Total_cost)
-       //{
+        Account User = getAccObj(Username);
+        //if(User.getBalance() >= Total_cost)
+        //{
         //   retval=true;
-           Statement stmt=cart.createStatement();
-           String drop="DROP TABLE "+Username.toLowerCase();
-           stmt.executeUpdate(drop);
-           //User.setBalance(User.getBalance()-Total_cost);
-           //UpdateBal(User);
-           cart.close();
-       //}
+        Statement stmt = cart.createStatement();
+        String drop = "DROP TABLE " + Username.toLowerCase();
+        stmt.executeUpdate(drop);
+        //User.setBalance(User.getBalance()-Total_cost);
+        //UpdateBal(User);
+        cart.close();
+        //}
        /*else
        {
            retval=false;
@@ -152,6 +152,5 @@ public class DButilsCart {
        }
        return retval;
        */
-
     }
 }
