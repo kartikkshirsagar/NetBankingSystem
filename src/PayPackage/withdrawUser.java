@@ -45,7 +45,7 @@ public class withdrawUser extends HttpServlet {
             //Show success message(maybe popup)
             //PrintWriter out=response.getWriter();
             //out.println("Success");
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("success.html");
         }
         else
         {

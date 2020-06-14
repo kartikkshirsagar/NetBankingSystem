@@ -12,10 +12,12 @@
 </head>
 <body>
     <%
+        System.out.println("in keyword.jsp1");
         String key=request.getParameter("keyword");
         HttpSession sess=request.getSession();
-        sess.setAttribute("key",key);
+        sess.setAttribute("keyword",key);
         response.sendRedirect("mallHome.jsp");
+        System.out.println("in keyword.jsp");
     %>
 </body>
 </html>

@@ -50,7 +50,8 @@ public class transferUser extends HttpServlet {
             if(found==true)
             {
                 //Successful transaction
-                response.sendRedirect("home.jsp");
+                //response.sendRedirect("home.jsp");
+                response.sendRedirect("success.html");
             }
             else
             {
