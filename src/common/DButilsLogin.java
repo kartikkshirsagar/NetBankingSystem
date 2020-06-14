@@ -1,5 +1,7 @@
 package common;
 import java.sql.*;
+import java.util.Random;
+
 public class DButilsLogin {
     void Print() throws SQLException, ClassNotFoundException {
         Connection con = common.connectDB.connectToDB();
@@ -43,4 +45,39 @@ public class DButilsLogin {
         }
         return ret;
     }
+
+    public static int GenerateAccNo(){
+        int Acc_no = new Random().nextInt(900000)+100000;
+        return Acc_no;
+    }
+
+    public static Boolean DoesAccExist(int Acc_No) throws SQLException, ClassNotFoundException {
+        Connection con=connectDB.connectToDB();
+        Statement stmt=con.createStatement();
+        String query="SELECT * FROM login WHERE acc_no="+Acc_No+"";
+        ResultSet rs=stmt.executeQuery(query);
+        Boolean retval=false;
+        if(rs.next())
+        {
+            retval=true;
+        }
+        return retval;
+    }
+
+    public static void InsertIntoDatabase(String Username,String password) throws SQLException, ClassNotFoundException {
+        Connection con=connectDB.connectToDB();
+        Statement stmt=con.createStatement();
+        int acc_no;
+        acc_no=GenerateAccNo();
+        while(DoesAccExist(acc_no)==true)
+        {
+            acc_no=GenerateAccNo();
+        }
+        String insertAccounts="INSERT INTO accounts(acc_no,acc_holder,balance) VALUES ("+acc_no+","+Username+","+"0)";
+        stmt.executeUpdate(insertAccounts);
+        String insertlogin="INSERT INTO login(username,password,acc_no) VALUES ("+Username+","+password+","+acc_no+")";
+        stmt.executeUpdate(insertlogin);
+    }
+
+
 }

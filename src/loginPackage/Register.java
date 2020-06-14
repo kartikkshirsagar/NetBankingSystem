@@ -20,8 +20,9 @@ public class Register extends HttpServlet {
         PrintWriter out = response.getWriter();
 //        System.out.println("x");
         try {
-            DButilsLogin.InsertLogin(username,pass);
-            DButilsLogin.InsertAcc(name);
+            //DButilsLogin.InsertLogin(username,pass);
+            //DButilsLogin.InsertAcc(name);
+            DButilsLogin.InsertIntoDatabase(username,pass);
             out.println("success");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
