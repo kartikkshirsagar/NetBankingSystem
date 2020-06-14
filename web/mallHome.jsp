@@ -79,7 +79,6 @@
                             }
                         });
                     });
-
                 }
             });
         });
@@ -132,12 +131,12 @@
                 </li>
                 -->
             </ul>
-            <form class="navbar-form navbar-right" role="search">
+            <form action="/search" method="post" class="navbar-form navbar-right" role="search">
                 <div class="form-group">
-                    <input type="text" placeholder="Enter Keyword Here ..." class="form-control">
+                    <input type="text" id="Search_result" placeholder="Enter Keyword Here ..." class="form-control">
                 </div>
                 &nbsp;
-                <button type="submit" class="btn btn-primary">Search</button>
+                <input type="submit" id="Sub_search" class="btn btn-primary">Search</input>
             </form>
         </div>
         <!-- /.navbar-collapse -->
