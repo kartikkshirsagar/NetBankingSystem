@@ -79,64 +79,7 @@
                             }
                         });
                     });
-                    $('#Sub_search').on("submit",function (event) {
-                        // event.preventDefault();
-                        let x = $('#Search_result').val();
-                        console.log(x);
-                        $.ajax({
-                            url:"search",
-                            data : {keyword : x},
-                            type : "POST",
-                            success : function (data) {
-                                console.log(data);
-                                // for(let x in myobj)
-                                // {
-                                //     txt += "<div class='col-md-4 text-center col-sm-6 col-xs-6'><div class='thumbnail product-box'>"+
-                                //         "<img src='assets1/img/dummyimg.png'/><div class='caption'><h3 id='Name'><a href='#'>"+
-                                //         myobj[x].name+
-                                //         "</a></h3><p id='price'>Price : <strong>Rs."+
-                                //         myobj[x].price+
-                                //         "</strong></p><p id='Description' >"+
-                                //         myobj[x].description+
-                                //         "</p><p><form action='post' id='"+
-                                //         myobj[x].id +"'>" + "<input type='hidden' name='id' value='"+
-                                //         myobj[x].id+
-                                //         "'><input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
-                                //         "</div></div></div>";
-                                // }
-                                // document.getElementById('myrow').innerHTML = txt;
-                                // let str = "";
-                                // len = len + 1;
-                                // for(let i=1;i<=len;i++)
-                                // {
-                                //     str += "#" + i.toString();
-                                //     if(i!=len)
-                                //     {
-                                //         str = str + ",";
-                                //     }
-                                // }
-                                // $(str.toString()).on('submit',function (event) {
-                                //     event.preventDefault();
-                                //     let f = $(this).serialize();
-                                //     console.log(f);
-                                //     $.ajax({
-                                //         url : "test",
-                                //         data : f,
-                                //         type : "POST",
-                                //         success:function (data) {
-                                //             $.ajax({
-                                //                 type: "POST",
-                                //                 url : "cartquantity",
-                                //                 success:function (data) {
-                                //                     $('#prod_num').html(data.toString());
-                                //                 }
-                                //             })
-                                //         }
-                                //     });
-                                // });
-                            }
-                        })
-                    })
+
                 }
             });
         });
@@ -156,7 +99,10 @@
             </button>
             <a class="navbar-brand" href="#"><strong>MAZE</strong> Shop</a>
         </div>
-
+<%
+    HttpSession sess=request.getSession();
+    sess.removeAttribute("key");
+%>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
@@ -189,12 +135,14 @@
                 </li>
                 -->
             </ul>
-            <form action="/search" method="post" class="navbar-form navbar-right" role="search">
+            <form class="navbar-form navbar-right" role="search">
+                <form method="post" action="keyword.jsp">
                 <div class="form-group">
-                    <input type="text" id="Search_result" placeholder="Enter Keyword Here ..." class="form-control">
+                    <input type="text" placeholder="Enter Keyword Here ..." class="form-control" name="keyword" value="">
                 </div>
                 &nbsp;
-                <input type="submit" id="Sub_search" class="btn btn-primary">Search</input>
+                <input type="submit" class="btn btn-primary"></input>
+                </form>
             </form>
         </div>
         <!-- /.navbar-collapse -->

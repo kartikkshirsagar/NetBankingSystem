@@ -79,6 +79,7 @@
                             }
                         });
                     });
+
                 }
             });
         });
@@ -98,7 +99,10 @@
             </button>
             <a class="navbar-brand" href="#"><strong>MAZE</strong> Shop</a>
         </div>
-
+<%
+    HttpSession sess=request.getSession();
+    sess.removeAttribute("key");
+%>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
@@ -131,12 +135,14 @@
                 </li>
                 -->
             </ul>
-            <form action="/search" method="post" class="navbar-form navbar-right" role="search">
+            <form class="navbar-form navbar-right" role="search">
+                <form method="post" action="keyword.jsp">
                 <div class="form-group">
-                    <input type="text" id="Search_result" placeholder="Enter Keyword Here ..." class="form-control">
+                    <input type="text" placeholder="Enter Keyword Here ..." class="form-control" name="keyword" value="">
                 </div>
                 &nbsp;
-                <input type="submit" id="Sub_search" class="btn btn-primary">Search</input>
+                <input type="submit" class="btn btn-primary"></input>
+                </form>
             </form>
         </div>
         <!-- /.navbar-collapse -->
