@@ -81,7 +81,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>mallHome</servlet-name>
-        <url-pattern>/MallPages/mall</url-pattern>
         <url-pattern>/mall</url-pattern>
     </servlet-mapping>
 
