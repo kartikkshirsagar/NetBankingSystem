@@ -33,7 +33,7 @@
                 success: function (response) {
                     myobj = JSON.parse(response);
                     let len = myobj.length;
-                    console.log(len);
+                    // console.log(len);
                     for(let x in myobj)
                     {
                         txt += "<div class='col-md-4 text-center col-sm-6 col-xs-6'><div class='thumbnail product-box'>"+
@@ -43,7 +43,7 @@
                             myobj[x].price+
                             "</strong></p><p id='Description' >"+
                             myobj[x].description+
-                            "</p><p><form action='post' id='"+
+                            "</p><p><form action='test' id='"+
                             myobj[x].id +"'>" + "<input type='hidden' name='id' value='"+
                             myobj[x].id+
                             "'><input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
@@ -79,8 +79,40 @@
                             }
                         });
                     });
-
                 }
+            });
+            $('#form_search').on("submit",function (event) {
+                let myobj1,txt1="",str1="";
+                event.preventDefault();
+                let rs = $(this).serialize();
+                $.ajax({
+                    url : "search",
+                    type: "POST",
+                    data : rs,
+                    success: function (data) {
+                        myobj1 = JSON.parse(data);
+
+                        let len1 = myobj1.length;
+                        // console.log(len);
+                        for(let x in myobj1)
+                        {
+                            txt1 += "<div class='col-md-4 text-center col-sm-6 col-xs-6'><div class='thumbnail product-box'>"+
+                                "<img src='assets1/img/dummyimg.png'/><div class='caption'><h3 id='Name'><a href='#'>"+
+                                myobj1[x].name+
+                                "</a></h3><p id='price'>Price : <strong>Rs."+
+                                myobj1[x].price+
+                                "</strong></p><p id='Description' >"+
+                                myobj1[x].description+
+                                "</p><p><form action='post' id='"+
+                                myobj1[x].id +"'>" + "<input type='hidden' name='id' value='"+
+                                myobj1[x].id+
+                                "'><input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
+                                "</div></div></div>";
+                        }
+                        // console.log(txt1);
+                        document.getElementById('myrow').innerHTML = txt1;
+                    }
+                });
             });
         });
 
@@ -135,14 +167,12 @@
                 </li>
                 -->
             </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <form method="post" action="keyword.jsp">
+            <form method="post" id="form_search" action="/search" class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <input type="text" placeholder="Enter Keyword Here ..." class="form-control" name="keyword" value="">
                 </div>
                 &nbsp;
                 <input type="submit" class="btn btn-primary"></input>
-                </form>
             </form>
         </div>
         <!-- /.navbar-collapse -->
