@@ -105,7 +105,10 @@
             if (name <= 0) {
                 console.log(name);
                 $('#err').html("Invalid amt");
-                event.preventDefault();
+                $('#login').on("submit",function (event) {
+                    event.preventDefault();
+                })
+
             } else {
                 console.log(name);
                 $('#err').html("Valid amt");
@@ -117,7 +120,9 @@
             if (name <= 0) {
                 console.log(name);
                 $('#err1').html("Invalid amt");
-                event.preventDefault();
+                $('#trans').on("submit",function (event) {
+                    event.preventDefault();
+                })
             } else {
                 console.log(name);
                 $('#err1').html("Valid amt");
@@ -129,7 +134,9 @@
             if (name <= 0) {
                 console.log(name);
                 $('#err2').html("Invalid Acc");
-                event.preventDefault();
+                $('#register').on("submit",function (event) {
+                    event.preventDefault();
+                })
             } else {
                 console.log(name);
                 $('#err2').html("Valid Acc");
@@ -141,7 +148,9 @@
             if (name <= 0) {
                 console.log(name);
                 $('#err3').html("Invalid amt");
-                event.preventDefault();
+                $('#register').on("submit",function (event) {
+                    event.preventDefault();
+                })
             } else {
                 console.log(name);
                 $('#err3').html("Valid amt");
