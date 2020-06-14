@@ -90,6 +90,19 @@ public class DButilsCart {
             {
                 query="DELETE FROM "+Username+" WHERE product_id="+product_id;
                 stmt.executeUpdate(query);
+                //Check to see empty cart
+                String check="SELECT * FROM "+Username;
+                ResultSet rs=stmt.executeQuery(check);
+                if(rs.next())
+                {
+                    //cart is not empty
+                }
+                else
+                {
+                    //cart is empty
+                    //Drop table
+                    DropCart(Username);
+                }
             }
             else
                 {
