@@ -100,8 +100,8 @@
             <a class="navbar-brand" href="#"><strong>MAZE</strong> Shop</a>
         </div>
 <%
-    HttpSession sess=request.getSession();
-    sess.removeAttribute("key");
+//    HttpSession sess=request.getSession();
+//    sess.removeAttribute("key");
 %>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -136,9 +136,9 @@
                 -->
             </ul>
             <form class="navbar-form navbar-right" role="search">
-                <form method="post" action="keyword.jsp">
+                <form method="POST" action="keyword.jsp">
                 <div class="form-group">
-                    <input type="text" placeholder="Enter Keyword Here ..." class="form-control" name="keyword" value="">
+                    <input type="text" placeholder="Enter Keyword Here ..." class="form-control" name="keyword">
                 </div>
                 &nbsp;
                 <input type="submit" class="btn btn-primary"></input>
