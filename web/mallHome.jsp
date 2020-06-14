@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Bootstrap E-Commerce Template- DIGI Shop mini</title>
+    <title>Maze Bank- Online Mall</title>
     <link href="css/noti.css">
     <!-- Bootstrap core CSS -->
     <link href="assets1/css/bootstrap.css" rel="stylesheet">
@@ -111,9 +111,11 @@
                         <span class="badge" id="prod_num">0</span>
                     </a>
                 </li>
+                <!--
                 <li><a href="index.jsp">Login</a></li>
-                <li><a href="index.jsp">Signup</a></li>
-
+                <li><a href="index.jsp">Sign up</a></li>
+                -->
+                <!--
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">24x7 Support <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -128,6 +130,7 @@
                         </a></li>
                     </ul>
                 </li>
+                -->
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
@@ -142,15 +145,16 @@
     <!-- /.container-fluid -->
 </nav>
 <div class="container">
-    <div class="row">
+    <!--<div class="row">
         <div class="col-md-12">
             <div class="well well-lg offer-box text-center">
                 Today's Offer : &nbsp; <span class="glyphicon glyphicon-cog"></span>&nbsp;40 % off  on purchase of $ 2,000 and above till 24 dec !
             </div>
 
             <br />
-        </div>            <!-- /.col -->
+        </div>
     </div>
+    -->
     <!-- /.row -->
     <div class="col-md-12" id="Main_box">
         <div class="row" id="myrow"></div>
@@ -158,13 +162,15 @@
     </div>
 </div>
 <!-- /.container -->
+<!--
 <div class="col-md-12 download-app-box text-center">
 
     <span class="glyphicon glyphicon-download-alt"></span>Download Our Android App and Get 10% additional Off on all Products . <a href="#" class="btn btn-danger btn-lg">DOWNLOAD  NOW</a>
 
 </div>
-
+-->
 <!--Footer -->
+<!--
 <div class="col-md-12 footer-box">
     <div class="row small-box ">
         <strong>Mobiles :</strong> <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
@@ -258,11 +264,11 @@
     </div>
     <hr>
 </div>
-<!-- /.col -->
+
 <div class="col-md-12 end-box ">
     &copy; 2014 | &nbsp; All Rights Reserved | &nbsp; www.yourdomain.com | &nbsp; 24x7 support | &nbsp; Email us: info@yourdomain.com
 </div>
-<!-- /.col -->
+-->
 <!--Footer end -->
 <!--Core JavaScript file  -->
 <script src="assets1/js/jquery-1.10.2.js"></script>
