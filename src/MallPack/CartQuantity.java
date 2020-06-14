@@ -28,7 +28,10 @@ public class CartQuantity extends HttpServlet {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            int size=List.size();
+            int size=0;
+            for(Product P:List){
+                size=size+P.getQuantity();
+            }
             PrintWriter out=response.getWriter();
             out.println(size);
         }

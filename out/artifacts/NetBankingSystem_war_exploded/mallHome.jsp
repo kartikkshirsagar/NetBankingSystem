@@ -111,8 +111,8 @@
                         <span class="badge" id="prod_num">0</span>
                     </a>
                 </li>
-                <li><a href="#kartik">Login</a></li>
-                <li><a href="#dhurv">Signup</a></li>
+                <li><a href="index.jsp">Login</a></li>
+                <li><a href="index.jsp">Signup</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">24x7 Support <b class="caret"></b></a>
