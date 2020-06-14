@@ -15,7 +15,7 @@
         System.out.println("in keyword.jsp1");
         String key=request.getParameter("keyword");
         HttpSession sess=request.getSession();
-        sess.setAttribute("keyword",key);
+        sess.setAttribute("key",key);
         response.sendRedirect("mallHome.jsp");
         System.out.println("in keyword.jsp");
     %>

@@ -61,9 +61,6 @@
                         }
                     }
                     document.getElementById('myrow').innerHTML = txt;
-
-
-
                     $(str.toString()).on('submit',function (event) {
                         event.preventDefault();
                         let f = $(this).serialize();
@@ -86,6 +83,13 @@
 
                 }
             });
+            $.ajax({
+                type: "POST",
+                url : "cartquantity",
+                success:function (data) {
+                    $('#prod_num').html(data.toString());
+                }
+            })
         });
 
     </script>
