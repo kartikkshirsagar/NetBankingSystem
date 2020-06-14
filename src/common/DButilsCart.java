@@ -51,7 +51,7 @@ public class DButilsCart {
 
     public static void addToCart(String Username,int product_id) throws SQLException, ClassNotFoundException {
         Connection con=connectToCart();
-        Boolean already,updateproduct;
+        Boolean already;
         //updateproduct= ProductSold(product_id);
         already=doesTableExist(Username);
         if(already==false)
@@ -67,7 +67,7 @@ public class DButilsCart {
             //Increment this here and update database
             int quantity=res.getInt("quantity");//quantity
             quantity=quantity+1;
-            String update="UPDATE "+Username+" set quantity="+quantity+"";
+            String update="UPDATE "+Username+" set quantity="+quantity+" WHERE product_id="+product_id+"";
             stmt.executeUpdate(update);
         }
         else
@@ -88,8 +88,21 @@ public class DButilsCart {
             String query;
             if(res.getInt("quantity")==1)
             {
-                query="DELETE FROM "+Username+" WHERE product_id="+product_id;
+                query="DELETE FROM "+Username+" WHERE product_id="+product_id+"";
                 stmt.executeUpdate(query);
+                //Check to see empty cart
+                String check="SELECT * FROM "+Username+"";
+                ResultSet rs=stmt.executeQuery(check);
+                if(rs.next())
+                {
+                    //cart is not empty
+                }
+                else
+                {
+                    //cart is empty
+                    //Drop table
+                    DropCart(Username);
+                }
             }
             else
                 {
