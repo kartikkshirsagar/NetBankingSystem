@@ -86,7 +86,7 @@
         $("#register").on('submit',function (event) {
             event.preventDefault();
             let f = $(this).serialize();
-            // console.log(f);
+            console.log(f);
             $.ajax({
                 url : "register",
                 data : f,

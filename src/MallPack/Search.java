@@ -1,5 +1,8 @@
 package MallPack;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +16,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import static common.DButilsProduct.convert;
+
 @WebServlet(name = "Search")
 public class Search extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,15 +28,20 @@ public class Search extends HttpServlet {
             Connection con=common.connectDB.connectToDB();
             Statement stmt=con.createStatement();
             ResultSet res=stmt.executeQuery("SELECT * FROM products WHERE name LIKE '%"+keyword+"%' OR description LIKE '%"+keyword+"%';");
-            while(res.next())
+            JSONArray Arr=convert(res);
+            out.println(Arr.toString());
+            /*while(res.next())
             {
                 list.add(new Product(res.getString("name"),res.getInt("id"),res.getInt("price"),res.getString("description"),1));
-            }
+            }*/
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        /*
         out.println("<!DOCTYPE html><html><body>");
         for(Product p :list){
             out.println("<form action='test' method='POST'>");
@@ -43,7 +53,7 @@ public class Search extends HttpServlet {
             out.println("</form>\n");
         }
         out.println("</body></html>");
-
+        */
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -11,7 +11,14 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>CartQuantity</servlet-name>
+        <servlet-class>MallPack.CartQuantity</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartQuantity</servlet-name>
+        <url-pattern>/cartquantity</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>PayController</servlet-name>
         <servlet-class>PayPackage.PayController</servlet-class>
@@ -81,7 +88,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>mallHome</servlet-name>
-        <url-pattern>/MallPages/mall</url-pattern>
         <url-pattern>/mall</url-pattern>
     </servlet-mapping>
 

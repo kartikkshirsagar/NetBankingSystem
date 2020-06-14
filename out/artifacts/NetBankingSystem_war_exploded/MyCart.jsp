@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <body>
 <%@ include file="basic.jsp"%>
 <h1 style="color: whitesmoke;">My Cart</h1>

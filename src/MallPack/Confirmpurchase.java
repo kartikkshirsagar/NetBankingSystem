@@ -2,9 +2,9 @@ package MallPack;
 
 import PayPackage.Account;
 import common.DButilsBank;
+import common.DButilsCart;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ public class Confirmpurchase extends HttpServlet {
         HttpSession sess=request.getSession();
         Account User=null;
         PrintWriter out = response.getWriter();
-        int amount=Integer.parseInt(request.getParameter("amount"));
+        int amount=Integer.parseInt(request.getParameter("amount").trim());
         String Username=sess.getAttribute("uname").toString();
         try {
             User= DButilsBank.getAccObj(Username);
@@ -32,17 +32,19 @@ public class Confirmpurchase extends HttpServlet {
             User.setBalance(User.getBalance() - amount);
             try {
                 DButilsBank.UpdateBal(User);
+                DButilsCart.DropCart(Username);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            out.println("Your order is received and your current balance is ");
-            out.println(User.getBalance());
+//            out.println("Your order is received and your current balance is ");
+//            out.println(User.getBalance());
+            response.sendRedirect("Thanks.jsp");
         }
         else
         {
-            out.println("Insufficient balance");
+            response.sendRedirect("withdrawError.html");
         }
     }
 }

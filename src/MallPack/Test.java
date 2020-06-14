@@ -23,21 +23,20 @@ public class Test extends HttpServlet {
         else{
             String username=session.getAttribute("uname").toString();
             try {
-                System.out.println("in try dopost");
-                if(!common.DButilsCart.doesTableExist(username))
-                {
-                    System.out.println("Table does not exist");
-                    common.DButilsCart.CreateCart(username);
-                }
+//                System.out.println("in try dopost");
+//                if(!common.DButilsCart.doesTableExist(username))
+//                {
+////                    System.out.println("Table does not exist");
+//                    common.DButilsCart.CreateCart(username);
+//                }
                 common.DButilsCart.addToCart(username,product_id);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-
         }
-        response.sendRedirect("mall");
+//        response.sendRedirect("mall");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

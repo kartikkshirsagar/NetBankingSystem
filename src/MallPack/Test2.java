@@ -17,7 +17,7 @@ public class Test2 extends HttpServlet {
         HttpSession sess = request.getSession();
         String username = sess.getAttribute("uname").toString();
 //        if(request.getParameter("remove") !=null) {
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("id").trim());
 
             try {
                 common.DButilsCart.removeFromCart(username, id);

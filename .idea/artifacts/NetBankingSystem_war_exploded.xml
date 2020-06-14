@@ -9,7 +9,6 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="mysql:mysql-connector-java:8.0.20" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/java-json.jar" />
-          <element id="library" level="project" name="java-json" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="NetBankingSystem/web/Web" />
