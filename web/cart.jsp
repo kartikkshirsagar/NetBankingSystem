@@ -92,6 +92,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <% Boolean notEmpty=false;%>
                             <% for(Product p:list) { %>
                             <tr>
                                 <th scope="row" class="border-0">
@@ -102,6 +103,7 @@
                                         </div>
                                     </div>
                                 </th>
+                                <% notEmpty=true;%>
                                 <td class="border-0 align-middle"><strong><%out.println(p.getPrice());%></strong></td>
                                 <td class="border-0 align-middle"><strong><%out.println(p.getQuantity());%></strong></td>
                                 <form method="POST" action="test2" id="form<%out.println(p.getId());%>">
@@ -110,7 +112,9 @@
                                 </form>
                             </tr>
                             <% } %>
-
+                            <% if(notEmpty==false){
+                               out.println("<tr> Your cart is empty,try searching for products!<tr> ");
+                            }%>
 
                             </tbody>
                         </table>
