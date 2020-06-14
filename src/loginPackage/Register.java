@@ -14,7 +14,7 @@ import java.sql.SQLException;
 @WebServlet(name = "register")
 public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name=request.getParameter("name").toString();
+        String name= request.getParameter("name");
         String username=request.getParameter("username");
         String pass=request.getParameter("pass");
         PrintWriter out = response.getWriter();

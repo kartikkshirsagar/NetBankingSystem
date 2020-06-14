@@ -23,6 +23,12 @@
         padding: 0px;
         border: none;
     }
+    body {
+        background: #eecda3;
+        background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+        background: linear-gradient(to right, #eecda3, #ef629f);
+        min-height: 100vh;
+    }
 
 </style>
 <div class="px-4 px-lg-0">

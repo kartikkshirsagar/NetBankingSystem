@@ -27,11 +27,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            let myobj,txt="",str="",len;
+            let myobj,txt="",str="";
             $.ajax({
                 url : "mall",
                 success: function (response) {
                     myobj = JSON.parse(response);
+                    let len = myobj.length;
+                    console.log(len);
                     for(let x in myobj)
                     {
                         txt += "<div class='col-md-4 text-center col-sm-6 col-xs-6'><div class='thumbnail product-box'>"+
@@ -41,36 +43,38 @@
                             myobj[x].price+
                             "</strong></p><p id='Description' >"+
                             myobj[x].description+
-                            "</p><p><form action='post' >"+
-                            "<input type='hidden' name='product_id' value='"+
+                            "</p><p><form action='post' id='"+
+                            myobj[x].id +"'>" + "<input type='hidden' name='id' value='"+
                             myobj[x].id+
-                            "'><input type='submit' class='btn btn-success' id='"+
-                            myobj[x].id
-                            +"' role='button' value='Add To Cart'></form></p>"+
+                            "'><input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
                             "</div></div></div>";
                     }
                     document.getElementById('myrow').innerHTML = txt;
+                    let str = "";
+                    len = len + 1;
+                    for(let i=1;i<=len;i++)
+                    {
+                        str += "#" + i.toString();
+                        if(i!=len)
+                        {
+                            str = str + ",";
+                        }
+                    }
+                    $(str.toString()).on('submit',function (event) {
+                        event.preventDefault();
+                        let f = $(this).serialize();
+                        // console.log(f);
+                        $.ajax({
+                            url : "test",
+                            data : f,
+                            type : "POST",
+                            success:function (data) {
+                                console.log("success");
+                            }
+                        });
+                    });
                 }
             });
-            len = 14;
-            for(let i=1;i<=len;i++)
-            {
-                str += '#' + i;
-                if(i!=len)
-                {
-                    str = str + ',';
-                }
-            }
-
-            $(str).on('submit',function (event) {
-                event.preventDefault();
-                console.log($(this).serialize());
-                // $.ajax({
-                //     url:"quantity",
-                //     data:
-                // })
-            })
-
         });
 
     </script>
@@ -263,6 +267,11 @@
 <script>
     $(function () {
         $('#mi-slider').catslider();
+    });
+    $('#1').on('submit',function (event) {
+        event.preventDefault();
+        let f = $(this).serialize();
+        console.log(f);
     });
 </script>
 </body>
