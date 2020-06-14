@@ -44,7 +44,7 @@ public class Confirmpurchase extends HttpServlet {
         }
         else
         {
-            response.sendRedirect("withdrawError.jsp");
+            response.sendRedirect("withdrawError.html");
         }
     }
 }
