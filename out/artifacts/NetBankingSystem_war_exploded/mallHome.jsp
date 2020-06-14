@@ -41,13 +41,20 @@
                             myobj[x].price+
                             "</strong></p><p id='Description' >"+
                             myobj[x].description+
-                            "</p><p><a href='#' class='btn btn-success' role='button'>Add To Cart</a></p>"+
+                            "</p><p><form action='post' >" +
+                            "    <input type='hidden' name='product_id' value='"+myobj[x].id+"'>"+
+                            "<input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
                             "</div></div></div>";
                     }
                     document.getElementById('myrow').innerHTML = txt;
                 }
             });
         });
+        // $('').click(function () {
+        //     chart.series[0].update({
+        //         data: window[this.id]
+        //     });
+        // });
     </script>
 </head>
 <body>
@@ -72,7 +79,7 @@
                 <li>
                     <a href="#" class="notification">
                         <span>Inbox</span>
-                        <span class="badge">3</span>
+                        <span class="badge" id="prod_num">0</span>
                     </a>
                 </li>
                 <li><a href="#kartik">Login</a></li>
@@ -237,9 +244,7 @@
 <script src="assets1/ItemSlider/js/jquery.catslider.js"></script>
 <script>
     $(function () {
-
         $('#mi-slider').catslider();
-
     });
 </script>
 </body>
