@@ -75,6 +75,7 @@
                                     url : "cartquantity",
                                     success:function (data) {
                                         $('#prod_num').html(data.toString());
+                                        $('#modal_button').click();
                                     }
                                 })
                             }
@@ -109,8 +110,6 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="cart" class="notification">
@@ -140,6 +139,8 @@
                 </li>
                 -->
             </ul>
+<%--btn by nitin--%>
+            <button type="button" id="modal_button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" aria-hidden="true"></button>
             <div class="navbar-form navbar-right" role="search">
                 <form method="post" action="keyword.jsp">
                 <div class="form-group">
@@ -153,6 +154,21 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger" id="exampleModalLabel">Message</h5>
+            </div>
+            <div class="modal-body text-success">
+                Item Added to the Cart Successfully
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <!--<div class="row">
         <div class="col-md-12">
