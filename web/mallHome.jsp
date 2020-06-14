@@ -41,9 +41,10 @@
                             myobj[x].price+
                             "</strong></p><p id='Description' >"+
                             myobj[x].description+
-                            "</p><p><form action='post' >" +
-                            "    <input type='hidden' name='product_id' value='"+myobj[x].id+"'>"+
-                            "<input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
+                            "</p><p><form action='post' >"+
+                            "<input type='hidden' name='product_id' value='"+
+                            myobj[x].id+
+                            "'><input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
                             "</div></div></div>";
                     }
                     document.getElementById('myrow').innerHTML = txt;
