@@ -42,7 +42,7 @@
         font-size: 18px;
     }
     img{
-        border-radius: 10%;
+        border-radius: 50px;
         display: block;
         box-shadow: black;
 
