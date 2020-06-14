@@ -107,6 +107,6 @@
         integrity="sha256-qE/6vdSYzQu9lgosKxhFplETvWvqAAlmAuR+yPh/0SI="
         crossorigin="anonymous"
 ></script>
-<script src="./js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

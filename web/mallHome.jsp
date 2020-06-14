@@ -34,6 +34,10 @@
                     myobj = JSON.parse(response);
                     let len = myobj.length;
                     console.log(len);
+                    let str = "";
+                    len = len + 1;
+                    let i,iter;
+                    iter=1;
                     for(let x in myobj)
                     {
                         txt += "<div class='col-md-4 text-center col-sm-6 col-xs-6'><div class='thumbnail product-box'>"+
@@ -43,23 +47,20 @@
                             myobj[x].price+
                             "</strong></p><p id='Description' >"+
                             myobj[x].description+
-                            "</p><p><form action='post' id='"+
+                            "</p><p><form action='test' id='"+
                             myobj[x].id +"'>" + "<input type='hidden' name='id' value='"+
                             myobj[x].id+
                             "'><input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
                             "</div></div></div>";
-                    }
-                    document.getElementById('myrow').innerHTML = txt;
-                    let str = "";
-                    len = len + 1;
-                    for(let i=1;i<=len;i++)
-                    {
+                        i=myobj[x].id;
                         str += "#" + i.toString();
-                        if(i!=len)
+                        iter=iter+1;
+                        if(iter!=len)
                         {
                             str = str + ",";
                         }
                     }
+                    document.getElementById('myrow').innerHTML = txt;
                     $(str.toString()).on('submit',function (event) {
                         event.preventDefault();
                         let f = $(this).serialize();
@@ -82,6 +83,13 @@
 
                 }
             });
+            $.ajax({
+                type: "POST",
+                url : "cartquantity",
+                success:function (data) {
+                    $('#prod_num').html(data.toString());
+                }
+            })
         });
 
     </script>
@@ -99,10 +107,6 @@
             </button>
             <a class="navbar-brand" href="#"><strong>MAZE</strong> Shop</a>
         </div>
-<%
-//    HttpSession sess=request.getSession();
-//    sess.removeAttribute("key");
-%>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
@@ -114,8 +118,9 @@
                         <span class="badge" id="prod_num">0</span>
                     </a>
                 </li>
+
+                <li><a href="home.jsp">Dashboard</a></li>
                 <!--
-                <li><a href="index.jsp">Login</a></li>
                 <li><a href="index.jsp">Sign up</a></li>
                 -->
                 <!--
@@ -135,15 +140,14 @@
                 </li>
                 -->
             </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <form method="POST" action="keyword.jsp">
+            <div class="navbar-form navbar-right" role="search">
+                <form method="post" action="keyword.jsp">
                 <div class="form-group">
-                    <input type="text" placeholder="Enter Keyword Here ..." class="form-control" name="keyword">
+                    <input type="text" placeholder="Enter Keyword Here ..." class="form-control" name="keyword" >
                 </div>
-                &nbsp;
                 <input type="submit" class="btn btn-primary"></input>
                 </form>
-            </form>
+            </div>
         </div>
         <!-- /.navbar-collapse -->
     </div>

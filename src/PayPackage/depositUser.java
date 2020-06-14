@@ -40,7 +40,8 @@ public class depositUser extends HttpServlet {
         //sess.removeAttribute("User");
         //sess.setAttribute("User",User);
         //Show success message(maybe popup)
-        response.sendRedirect("home.jsp");
+        //response.sendRedirect("home.jsp");
+        response.sendRedirect("success.html");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

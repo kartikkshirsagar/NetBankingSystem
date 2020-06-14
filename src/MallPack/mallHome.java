@@ -30,7 +30,7 @@ public class mallHome extends HttpServlet {
 //            return;
 //        }
         HttpSession sess=request.getSession();
-        if(sess.getAttribute("keyword")==null)
+        if(sess.getAttribute("key")==null)
         {
             PrintWriter out=response.getWriter();
             ResultSet Rs = DButilsProduct.Data_to_ResultSet();
@@ -45,10 +45,8 @@ public class mallHome extends HttpServlet {
         }
         else
         {
-            String keyword= (String) sess.getAttribute("keyword");
-            sess=request.getSession();
-            sess.removeAttribute("keyword");
-            System.out.println("else");
+            String keyword= (String) sess.getAttribute("key");
+            sess.removeAttribute("key");
             PrintWriter out=response.getWriter();
             ArrayList<Product> list=new ArrayList<Product>();
             try {
