@@ -5,7 +5,6 @@ import common.DButilsBank;
 import common.DButilsCart;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +32,7 @@ public class Confirmpurchase extends HttpServlet {
             User.setBalance(User.getBalance() - amount);
             try {
                 DButilsBank.UpdateBal(User);
-                DButilsCart.BuyStuff(Username,amount);
+                DButilsCart.DropCart(Username);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } catch (ClassNotFoundException e) {
