@@ -61,10 +61,11 @@ public class DButilsLogin {
         {
             retval=true;
         }
+        con.close();
         return retval;
     }
 
-    public static void InsertIntoDatabase(String Username,String password) throws SQLException, ClassNotFoundException {
+    public static void InsertIntoDatabase(String Username,String password,String name) throws SQLException, ClassNotFoundException {
         Connection con=connectDB.connectToDB();
         Statement stmt=con.createStatement();
         int acc_no;
@@ -73,10 +74,11 @@ public class DButilsLogin {
         {
             acc_no=GenerateAccNo();
         }
-        String insertAccounts="INSERT INTO accounts(acc_no,acc_holder,balance) VALUES ('"+acc_no+"','"+Username+"',"+"0)";
+        String insertAccounts="INSERT INTO accounts(acc_no,acc_holder,balance) VALUES ('"+acc_no+"','"+name+"',"+"0)";
         stmt.executeUpdate(insertAccounts);
         String insertlogin="INSERT INTO login(username,password,acc_no) VALUES ('"+Username+"','"+password+"',"+acc_no+")";
         stmt.executeUpdate(insertlogin);
+        con.close();
     }
 
 
