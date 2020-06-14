@@ -27,7 +27,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            let myobj,txt="";
+            let myobj,txt="",str="",len;
             $.ajax({
                 url : "mall",
                 success: function (response) {
@@ -44,18 +44,35 @@
                             "</p><p><form action='post' >"+
                             "<input type='hidden' name='product_id' value='"+
                             myobj[x].id+
-                            "'><input type='submit' class='btn btn-success' role='button' value='Add To Cart'></form></p>"+
+                            "'><input type='submit' class='btn btn-success' id='"+
+                            myobj[x].id
+                            +"' role='button' value='Add To Cart'></form></p>"+
                             "</div></div></div>";
                     }
                     document.getElementById('myrow').innerHTML = txt;
                 }
             });
+            len = 14;
+            for(let i=1;i<=len;i++)
+            {
+                str += '#' + i;
+                if(i!=len)
+                {
+                    str = str + ',';
+                }
+            }
+
+            $(str).on('submit',function (event) {
+                event.preventDefault();
+                console.log($(this).serialize());
+                // $.ajax({
+                //     url:"quantity",
+                //     data:
+                // })
+            })
+
         });
-        // $('').click(function () {
-        //     chart.series[0].update({
-        //         data: window[this.id]
-        //     });
-        // });
+
     </script>
 </head>
 <body>
