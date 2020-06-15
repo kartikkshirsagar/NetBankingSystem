@@ -1,5 +1,4 @@
 <%@ page import="PayPackage.Account" %>
-<%@ page import="PayPackage.TestArrayInit" %>
 <%@ page import="common.DButilsBank" %>
 <%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
